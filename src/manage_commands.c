@@ -51,6 +51,7 @@ void manage_other_separator(char *commands, shell_t *save)
 
 void manage_separator(shell_t *save)
 {
+    my_write_in_file(".mysh_history", save->str);
     save->all_commands = my_stwa_separator(save->str, ";");
     if (save->all_commands == NULL)
         return;
