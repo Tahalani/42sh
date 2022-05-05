@@ -13,7 +13,7 @@
 #include "builtins.h"
 #include "my.h"
 
-static int len_array_1d(char const *arr)
+int len_array_1d(char const *arr)
 {
     int i = 0;
 

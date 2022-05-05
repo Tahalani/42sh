@@ -50,6 +50,7 @@ void put_2_elements(char *str, int *value);
 char **my_getenv(char **env, char *str);
 char *my_get_line_env(char **env, char *str);
 char gettype(struct stat stats);
+int len_array_1d(char const *arr);
 
 int error(int const argc, char const *argv[], char const *env[]);
 
