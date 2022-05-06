@@ -36,6 +36,7 @@ SRC     	=		$(addsuffix .c,						\
 							)							\
 							error						\
 							mysh						\
+							my_prompt					\
 							ctrl_c						\
 							redirection					\
 							manage_commands				\
@@ -81,6 +82,7 @@ SRC_TEST	=		$(addsuffix .c,						\
 								manage_builtins 		\
 							)							\
 							error						\
+							my_prompt					\
 							redirection					\
 							pipe						\
 							manage_commands				\

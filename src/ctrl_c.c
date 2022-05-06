@@ -7,8 +7,11 @@
 
 #include "my.h"
 
+void my_prompt(void);
+
 void ctrl_c(int sig)
 {
-    my_putstr("\n> ");
+    my_putchar('\n');
+    my_prompt();
     (void)sig;
 }
