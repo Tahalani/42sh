@@ -13,7 +13,7 @@
 #include "color.h"
 
 // TODO username, os and user rigth !
-void my_prompt(void)
+void my_prompt(char **env)
 {
     char str[4096];
     char *str2 = NULL;
@@ -26,7 +26,7 @@ void my_prompt(void)
     str2 = my_strcpy(str2, str);
     prompt = my_stwa_separator(str2, "/");
     my_printf("%s[%s%s%s@%s%s %s%s%s]%s$%s>%s ", yellow, green,
-        "username", yellow, purple, "os", red,
+        my_get_line_env(env, "USER="), yellow, purple, "os", red,
         prompt[my_len_array(prompt) - 1], yellow, cyan, yellow, white);
     my_freef("%s%t", str2, prompt);
 }
