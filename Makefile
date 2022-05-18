@@ -64,7 +64,7 @@ SRC_TEST	=		$(addsuffix .c,						\
 								check_path				\
 								error_execve			\
 								gettype 				\
-							)							\
+							)					 		\
 							$(addprefix builtins/,		\
 								$(addprefix cd/,		\
 									error_cd			\
@@ -82,12 +82,13 @@ SRC_TEST	=		$(addsuffix .c,						\
 								manage_builtins 		\
 							)							\
 							error						\
+							mysh						\
 							my_prompt					\
+							ctrl_c						\
 							redirection					\
-							pipe						\
 							manage_commands				\
-							ctrl_c 						\
-						)								\
+							pipe						\
+						) 								\
 					)
 
 OBJ     	=       $(SRC:.c=.o)

@@ -39,12 +39,11 @@ Test(my_getenv, test_argv)
     ctrl_c(10);
 }
 
-// Test(my_getenv, test_getenv)
-// {
-//     char *cmd[] = {NULL, "hello"};
-//     shell_t save;
-//     save.str = "pipicaca";
-//     manage_commands(NULL, &save);
-//     manage_commands(cmd, &save);
-//     manage_pipe(NULL, NULL);
-// }
+Test(my_getenv, test_getenv)
+{
+    char *cmd[] = {NULL, "hello"};
+    shell_t save;
+    save.str = "pipicaca";
+    manage_commands(NULL, &save);
+    manage_commands(cmd, &save);
+}
