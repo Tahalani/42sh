@@ -47,3 +47,14 @@ Test(my_getenv, test_getenv)
     manage_commands(NULL, &save);
     manage_commands(cmd, &save);
 }
+
+Test(my_prompt, test_prompt)
+{
+    char *env[] = { "USER=HEKO", NULL };
+    shell_t save;
+    save.str = "pipicaca";
+    save.env = env;
+    my_prompt(save.env);
+    // manage_redirection("cat Makefile > kk", &save);
+    // manage_pipe("cat Makefile | kk", &save);
+}

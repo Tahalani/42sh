@@ -74,14 +74,13 @@ void launch_double_redirect(char const *command,
     dup2(fd_tmp, 1);
 }
 
-int handly_error_redirection(char **command, char const *commands)
+int handly_error_redirection(UNUSED char **command, char const *commands)
 {
     if (my_len_array(command) < 2) {
         my_puterr("Missing name for redirect.\n");
         my_freef("%t", command);
         return -1;
     }
-    (void)commands;
     return 0;
 }
 

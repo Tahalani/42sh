@@ -82,7 +82,6 @@ SRC_TEST	=		$(addsuffix .c,						\
 								manage_builtins 		\
 							)							\
 							error						\
-							mysh						\
 							my_prompt					\
 							ctrl_c						\
 							redirection					\
