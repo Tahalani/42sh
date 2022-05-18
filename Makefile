@@ -85,7 +85,7 @@ PATH_LIB	=		lib/my/
 
 LDFLAGS		=		-L$(PATH_LIB) -lmy
 
-NAME    	=		mysh
+NAME    	=		42sh
 
 NAME_TEST	=		unit_tests
 
