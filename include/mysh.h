@@ -9,6 +9,7 @@
     #define mysh
 
     #include <sys/stat.h>
+    #define UNUSED __attribute__((unused))
 
 typedef struct path_s {
     char **env;
@@ -27,7 +28,7 @@ typedef struct shell_s {
 } shell_t;
 
 int myshell(shell_t *);
-void ctrl_c(int sig);
+void ctrl_c(UNUSED int signal);
 int check_crash(int status, int *return_value);
 void manage_commands(char **commands, shell_t *);
 void manage_separator(shell_t *save);
