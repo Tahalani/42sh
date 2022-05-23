@@ -38,6 +38,7 @@ SRC     	=		$(addsuffix .c,						\
 							mysh						\
 							ctrl_c						\
 							redirection					\
+							redirection_left			\
 							manage_commands				\
 							pipe						\
 							main 						\
@@ -82,6 +83,7 @@ SRC_TEST	=		$(addsuffix .c,						\
 							)							\
 							error						\
 							redirection					\
+							redirection_left			\
 							pipe						\
 							manage_commands				\
 							ctrl_c 						\

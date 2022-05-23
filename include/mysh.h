@@ -44,6 +44,8 @@ void launch_redirect(char const *command, char const *direction,
     shell_t *save);
 void launch_double_redirect(char const *command,
     char const *direction, shell_t *save);
+void launch_redirect_left(char const *command,
+    char const *direction, shell_t *save);
 
 char *my_get_line_env(char **env, char *str);
 void put_2_elements(char *str, int *value);

@@ -94,7 +94,9 @@ void manage_redirection(char const *commands, shell_t *save)
         return;
     if (my_strstr(commands, ">>") != NULL)
         launch_double_redirect(command[0], command[1], save);
-    else
+    else if (my_strstr(commands, ">") != NULL)
         launch_redirect(command[0], command[1], save);
+    else if (my_strstr(commands, "<") != NULL)
+        launch_redirect_left(command[0], command[1], save);
     my_free_array(command);
 }
