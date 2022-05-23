@@ -16,29 +16,6 @@
 #include "my.h"
 #include "redirection.h"
 
-void launch_double_redirect(char const *command,
-    char const *direction, shell_t *save)
-{
-    char *duplicate = my_clean_str(direction);
-    int fd;
-    char **commands = NULL;
-    int fd_tmp;
-
-    if (duplicate == NULL)
-        return;
-    fd = open(duplicate, O_CREAT | O_WRONLY | O_APPEND, 00666);
-    if (fd == -1)
-        return;
-    fd_tmp = dup(1);
-    dup2(fd, 1);
-    commands = my_str_to_word_array(command);
-    if (commands == NULL)
-        return;
-    manage_commands(commands, save);
-    my_freef("%t%s%f", commands, duplicate, fd);
-    dup2(fd_tmp, 1);
-}
-
 void launch_redirect(char const *command, char const *direction, shell_t *save)
 {
     char *duplicate = my_clean_str(direction);
@@ -60,6 +37,29 @@ void launch_redirect(char const *command, char const *direction, shell_t *save)
     manage_commands(commands, save);
     my_free_array(commands);
     close(fd);
+    dup2(fd_tmp, 1);
+}
+
+void launch_double_redirect(char const *command,
+    char const *direction, shell_t *save)
+{
+    char *duplicate = my_clean_str(direction);
+    int fd;
+    char **commands = NULL;
+    int fd_tmp;
+
+    if (duplicate == NULL)
+        return;
+    fd = open(duplicate, O_CREAT | O_WRONLY | O_APPEND, 00666);
+    if (fd == -1)
+        return;
+    fd_tmp = dup(1);
+    dup2(fd, 1);
+    commands = my_str_to_word_array(command);
+    if (commands == NULL)
+        return;
+    manage_commands(commands, save);
+    my_freef("%t%s%f", commands, duplicate, fd);
     dup2(fd_tmp, 1);
 }
 
