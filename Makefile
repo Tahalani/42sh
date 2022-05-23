@@ -30,6 +30,7 @@ SRC     	=		$(addsuffix .c,						\
 									error_setenv2 		\
 								)						\
 								$(addprefix echo/,		\
+								print_echo_if_arg		\
 								if_echo					\
 								echo_handle_backslash	\
 								verif_echo_arg			\

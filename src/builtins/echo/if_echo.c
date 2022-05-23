@@ -12,39 +12,31 @@
 #include "mysh.h"
 #include <unistd.h>
 
-void handle_backslash(char **commands, int i, int *j);
-int verif_option_echo(char *commands);
-int is_arg_hyphen_n(char *commands);
-
-int manage_echo_option(char **commands)
+void manage_echo_option(char **commands)
 {
-    my_putstr("je suis dans le fonction option");
-}
-
-void print_string(char **commands, int i)
-{
-    if (commands[i][0] != '"') {
-        for (int j = 0; j < my_strlen(commands[i]); j++) {
-            if (commands[i][j] == '\\')
-                continue;
-            else
-                my_putchar(commands[i][j]);
-        }
-    } else {
-        for (int j = 1; j < strlen(commands[i]) - 1; j++) {
-            handle_backslash(commands, i, &j);
-            if (commands[i][j] != '\0' && j < strlen(commands[i]) - 1)
-                my_putchar(commands[i][j]);
-        }
+    if (commands[2] == NULL) {
+        my_putchar('\n');
+        return;
     }
+    if (strcmp(commands[1], "-E") == 0 || strcmp(commands[1], "\"-E\"") == 0
+    || strcmp(commands[1], "\'-E\'") == 0)
+        echo_opt_maj_e(commands);
+    if (strcmp(commands[1], "-e") == 0 || strcmp(commands[1], "\"-e\"") == 0
+    || strcmp(commands[1], "\'-e\'") == 0)
+        echo_opt_e(commands);
 }
 
 void print_arg_in_boucle(char **commands, shell_t *save, int i)
 {
     if (strcmp(commands[i], "$?") == 0 || strcmp(commands[i], "\"$?\"") == 0)
         my_put_nbr(save->return_value);
-    else
-        print_string(commands, i);
+    else {
+        if (commands[i][0] != '\"' && commands[i][0] != '\'') {
+            print_simple_case(commands[i]);
+        } else {
+            print_with_backslash(commands, i);
+        }
+    }
     if (commands[i + 1] != NULL)
         my_putchar(' ');
 }
@@ -53,8 +45,12 @@ int my_echo(char **commands, shell_t *save)
 {
     int i = 1;
 
+    if (verif_solo_quote(commands) == -1) {
+        save->return_value = 1;
+        return -1;
+    }
     if (commands[1] == NULL) {
-        my_putstr("\n");
+        my_putchar('\n');
     } else if (verif_option_echo(commands[1]) == 1) {
         manage_echo_option(commands);
     } else {

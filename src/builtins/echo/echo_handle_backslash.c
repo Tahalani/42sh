@@ -12,9 +12,9 @@
 #include "mysh.h"
 #include <unistd.h>
 
-void other_backslash(char **commands, int i, int *j);
+void other_backslash(char **commands, int i, size_t *j);
 
-void handle_backslash(char **commands, int i, int *j)
+void handle_backslash(char **commands, int i, size_t *j)
 {
     if (commands[i][*j] == '\\' && commands[i][*j + 1] == 'n') {
         my_putchar('\n');
@@ -35,7 +35,7 @@ void handle_backslash(char **commands, int i, int *j)
     other_backslash(commands, i, j);
 }
 
-void other_backslash(char **commands, int i, int *j)
+void other_backslash(char **commands, int i, size_t *j)
 {
     if (commands[i][*j] == '\\' && commands[i][*j + 1] == 'v') {
         my_putchar('\v');

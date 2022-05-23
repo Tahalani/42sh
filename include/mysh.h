@@ -9,6 +9,7 @@
     #define mysh
 
     #include <sys/stat.h>
+    #include <stddef.h>
 
 typedef struct path_s {
     char **env;
@@ -50,7 +51,14 @@ void put_2_elements(char *str, int *value);
 char **my_getenv(char **env, char *str);
 char *my_get_line_env(char **env, char *str);
 char gettype(struct stat stats);
-
+void handle_backslash(char **commands, int i, size_t *j);
+int verif_option_echo(char *commands);
+int is_arg_hyphen_n(char *commands);
+void echo_opt_maj_e(char **commands);
+void echo_opt_e(char **commands);
+void print_with_backslash(char **commands, int i);
+int verif_solo_quote(char **commands);
+void print_simple_case(char *commands);
 int error(int const argc, char const *argv[], char const *env[]);
 
 #endif/* !mysh */

@@ -12,6 +12,7 @@
     #include "cd.h"
     #include "mysh.h"
 
+int my_echo(char **commands, shell_t *save);
 int manage_builtins(char **commands, shell_t *);
 int my_exit(char **commands, shell_t *);
 
