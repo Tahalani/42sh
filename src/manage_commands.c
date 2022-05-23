@@ -6,8 +6,9 @@
 */
 
 #include <stddef.h>
-#include "my.h"
 #include "commands_array.h"
+#include "redirection.h"
+#include "my.h"
 #include "mysh.h"
 
 int analyse_commands(char **commands, shell_t *save)

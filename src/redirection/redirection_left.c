@@ -5,17 +5,18 @@
 ** redirection_left
 */
 
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <stdlib.h>
-#include <signal.h>
+#include <stddef.h>
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
+#include <signal.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 
 #include "mysh.h"
 #include "my.h"
+#include "redirection.h"
 
 void launch_redirect_left(char const *command,
     char const *direction, shell_t *save)
@@ -42,19 +43,35 @@ void launch_redirect_left(char const *command,
 
 void launch_double_redirect_left(char const *direction, shell_t *save)
 {
-    char *after_red = my_clean_str(direction);
+    char *word_after_redirection = my_clean_str(direction);
     save->str = NULL;
     size_t size;
     save->status = 0;
 
-    if (after_red == NULL)
+    if (word_after_redirection == NULL)
         return;
     signal(SIGINT, ctrl_c);
     my_putstr("? ");
     while (getline(&save->str, &size, stdin) > 0) {
         save->str[strlen(save->str) - 1] = '\0';
-        if (strcmp(save->str, after_red) == 0)
+        if (signal(SIGINT, ctrl_c))
+            break;
+        if (strcmp(save->str, word_after_redirection) == 0)
             break;
         my_putstr("? ");
     }
+}
+
+char **manage_redirection_left(char const *commands,
+    shell_t *save, char **command)
+{
+    command = my_stwa_separator(commands, "<\n");
+    if (command == NULL ||
+    handly_error_redirection(command, commands) == -1)
+        return (NULL);
+    if (strstr(commands, "<<") != NULL)
+        launch_double_redirect_left(command[1], save);
+    else if (strstr(commands, "<") != NULL)
+        launch_redirect_left(command[0], command[1], save);
+    return (command);
 }
