@@ -10,6 +10,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "mysh.h"
 #include "my.h"
@@ -89,14 +90,19 @@ void manage_redirection(char const *commands, shell_t *save)
 {
     char **command = NULL;
 
-    command = my_stwa_separator(commands, ">\n");
+    if (my_char_is_in_str(commands, '>') == 1)
+        command = my_stwa_separator(commands, ">\n");
+    if (my_char_is_in_str(commands, '<') == 1)
+        command = my_stwa_separator(commands, "<\n");
     if (command == NULL || handly_error_redirection(command, commands) == -1)
         return;
-    if (my_strstr(commands, ">>") != NULL)
+    if (strstr(commands, ">>") != NULL)
         launch_double_redirect(command[0], command[1], save);
-    else if (my_strstr(commands, ">") != NULL)
+    else if (strstr(commands, ">") != NULL)
         launch_redirect(command[0], command[1], save);
-    else
+    else if (strstr(commands, "<<") != NULL)
+        launch_double_redirect_left(command[1], save);
+    else if (strstr(commands, "<") != NULL)
         launch_redirect_left(command[0], command[1], save);
     my_free_array(command);
 }

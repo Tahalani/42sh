@@ -36,7 +36,8 @@ void manage_other_separator(char *commands, shell_t *save)
 
     if (commands == NULL)
         return;
-    if (my_char_is_in_str(commands, '>') == 1) {
+    if (my_char_is_in_str(commands, '>') == 1 ||
+    my_char_is_in_str(commands, '<') == 1) {
         manage_redirection(commands, save);
     } else if (my_char_is_in_str(commands, '|') == 1) {
         manage_pipe(commands, save);
