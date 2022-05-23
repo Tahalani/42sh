@@ -6,6 +6,7 @@
 */
 
 #include <stddef.h>
+
 #include "my.h"
 #include "builtins.h"
 #include "mysh.h"
@@ -61,15 +62,4 @@ int if_cd(char **commands, shell_t *save)
         return (0);
     }
     return (1);
-}
-
-int if_history(char **commands, shell_t *save)
-{
-    char const *new_commands[] = {"cat", ".42sh_history", NULL};
-
-    if (my_strcmp(commands[0], "history") == 0) {
-        manage_commands((char **)new_commands, save);
-        return 0;
-    }
-    return 1;
 }
