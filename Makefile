@@ -29,6 +29,11 @@ SRC     	=		$(addsuffix .c,						\
 									error_setenv		\
 									error_setenv2 		\
 								)						\
+								$(addprefix echo/,		\
+								if_echo					\
+								echo_handle_backslash	\
+								verif_echo_arg			\
+								)						\
 								if_builtins				\
 								my_unsetenv				\
 								exit					\

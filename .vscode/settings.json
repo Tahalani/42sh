@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "if_echoc": "c",
+        "builtins_array.h": "c",
+        "builtins.h": "c",
+        "my.h": "c"
+    }
+}
