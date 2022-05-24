@@ -1,16 +1,15 @@
 /*
 ** EPITECH PROJECT, 2022
-** if_builtins
+** verif_echo_arg
 ** File description:
 ** FreeKOSOVO
 */
 
 #include <stddef.h>
 #include <string.h>
+
 #include "my.h"
-#include "builtins.h"
-#include "mysh.h"
-#include <unistd.h>
+#include "echo.h"
 
 int is_arg_hyphen_n(char *commands)
 {
@@ -29,15 +28,15 @@ int verif_option_echo(char *commands)
 int verif_solo_quote(char **commands)
 {
     for (int i = 1; commands[i] != NULL; i++) {
-        if (commands[i][0] == '\'' && commands[i]
-        [strlen(commands[i]) - 1] != '\'') {
+        if (commands[i][0] == '\'' && (commands[i]
+        [strlen(commands[i]) - 1] != '\'' || strlen(commands[i]) == 1)) {
             my_putstr("Unmatched '");
             my_putchar('\'');
             my_putstr("'.\n");
             return -1;
         }
-        if (commands[i][0] == '\"' && commands[i]
-        [strlen(commands[i]) - 1] != '\"') {
+        if (commands[i][0] == '\"' && (commands[i]
+        [strlen(commands[i]) - 1] != '\"'|| strlen(commands[i]) == 1)) {
             my_putstr("Unmatched '");
             my_putchar('\"');
             my_putstr("'.\n");

@@ -1,16 +1,17 @@
 /*
 ** EPITECH PROJECT, 2022
-** if_builtins
+** my_echo
 ** File description:
 ** FreeKOSOVO
 */
 
 #include <stddef.h>
 #include <string.h>
+#include <unistd.h>
+
 #include "my.h"
 #include "builtins.h"
-#include "mysh.h"
-#include <unistd.h>
+#include "echo.h"
 
 void manage_echo_option(char **commands)
 {
@@ -45,10 +46,8 @@ int my_echo(char **commands, shell_t *save)
 {
     int i = 1;
 
-    if (verif_solo_quote(commands) == -1) {
-        save->return_value = 1;
+    if (verif_solo_quote(commands) == -1)
         return -1;
-    }
     if (commands[1] == NULL) {
         my_putchar('\n');
     } else if (verif_option_echo(commands[1]) == 1) {
@@ -61,6 +60,5 @@ int my_echo(char **commands, shell_t *save)
         if (!is_arg_hyphen_n(commands[1]))
             my_putchar('\n');
     }
-    save->return_value = 0;
     return (0);
 }

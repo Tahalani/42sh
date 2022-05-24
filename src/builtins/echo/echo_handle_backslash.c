@@ -1,18 +1,15 @@
 /*
 ** EPITECH PROJECT, 2022
-** if_builtins
+** echo_handle_backslash
 ** File description:
 ** FreeKOSOVO
 */
 
-#include <stddef.h>
-#include <string.h>
 #include "my.h"
 #include "builtins.h"
-#include "mysh.h"
-#include <unistd.h>
+#include "echo.h"
 
-void other_backslash(char **commands, int i, size_t *j);
+static void other_backslash(char **commands, int i, size_t *j);
 
 void handle_backslash(char **commands, int i, size_t *j)
 {
@@ -35,7 +32,7 @@ void handle_backslash(char **commands, int i, size_t *j)
     other_backslash(commands, i, j);
 }
 
-void other_backslash(char **commands, int i, size_t *j)
+static void other_backslash(char **commands, int i, size_t *j)
 {
     if (commands[i][*j] == '\\' && commands[i][*j + 1] == 'v') {
         my_putchar('\v');

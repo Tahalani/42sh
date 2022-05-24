@@ -31,11 +31,12 @@ SRC     	=		$(addsuffix .c,						\
 								)						\
 								$(addprefix echo/,		\
 								print_echo_if_arg		\
-								if_echo					\
+								my_echo					\
 								echo_handle_backslash	\
 								verif_echo_arg			\
 								)						\
 								if_builtins				\
+								if_builtins_2			\
 								my_unsetenv				\
 								exit					\
 								manage_builtins 		\

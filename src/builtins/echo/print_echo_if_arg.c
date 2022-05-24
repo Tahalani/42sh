@@ -1,16 +1,15 @@
 /*
 ** EPITECH PROJECT, 2022
-** if_builtins
+** print_echo_if_arg
 ** File description:
 ** FreeKOSOVO
 */
 
 #include <stddef.h>
 #include <string.h>
+
 #include "my.h"
-#include "builtins.h"
-#include "mysh.h"
-#include <unistd.h>
+#include "echo.h"
 
 void print_with_backslash(char **commands, int i);
 
