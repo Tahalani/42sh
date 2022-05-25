@@ -38,7 +38,7 @@ void launch_redirect_left(char const *command,
     char const *direction, shell_t *save)
 {
     char *after_red = my_clean_str(direction);
-    int fd;
+    int fd = 0;
 
     if (after_red == NULL)
         return;
@@ -51,12 +51,11 @@ void launch_redirect_left(char const *command,
 static int init_value_double_left(shell_t *save,
     char *word_after_redirection, int fd)
 {
-    save->status = 0;
     free(save->str);
     save->str = NULL;
     if (word_after_redirection == NULL)
         return (-1);
-    fd = open("tmp_left", O_CREAT | O_WRONLY | O_RDONLY | O_TRUNC, 0666);
+    fd = open(TMP_FILE, O_CREAT | O_WRONLY | O_RDONLY | O_TRUNC, 0666);
     if (fd == -1)
         return (-1);
     my_putstr("? ");
@@ -82,9 +81,9 @@ void launch_double_redirect_left(char const *command,
         my_putstr("? ");
     }
     close(fd);
-    fd = open("tmp_left", O_RDONLY);
+    fd = open(TMP_FILE, O_RDONLY);
     fd_function_manipulation(command, fd, word_after_redirection, save);
-    remove("tmp_left");
+    remove(TMP_FILE);
 }
 
 char **manage_redirection_left(char const *commands,

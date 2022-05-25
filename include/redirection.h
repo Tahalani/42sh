@@ -7,10 +7,9 @@
 
 #ifndef REDIRECTION_H_
     #define REDIRECTION_H_
-
+    #define TMP_FILE "tmp_redirection"
     #include "mysh.h"
 
-char *my_clean_str(char const *str);
 
 void launch_redirect(char const *command,
     char const *direction, shell_t *save);
@@ -33,7 +32,5 @@ char **manage_redirection_left(char const *commands,
 
 char **manage_redirection_right(char const *commands,
     shell_t *save, char **command);
-
-void manage_redirection(char const *commands, shell_t *save);
 
 #endif/* !REDIRECTION_H_ */

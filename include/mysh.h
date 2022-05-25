@@ -37,6 +37,7 @@ int check_path(char **commands, shell_t *);
 void error_execve(char *str, char **commands, char **env, int *value);
 void check_status(int status, int *value);
 
+char *my_clean_str(char const *str);
 void manage_pipe(char *commands, shell_t *);
 void launch_pipe(char **command, shell_t *);
 
