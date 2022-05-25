@@ -16,7 +16,8 @@ void my_clean_file(char const *filepath)
 {
     int fd = -1;
 
-    remove(filepath);
+    if (remove(filepath) == -1)
+        return;
     fd = open(filepath, O_CREAT, 0666);
     if (fd == -1)
         return;
