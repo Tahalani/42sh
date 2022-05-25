@@ -10,6 +10,7 @@
 
     #include <sys/stat.h>
     #define UNUSED __attribute__((unused))
+    #define INPUT 0
 
 typedef struct path_s {
     char **env;

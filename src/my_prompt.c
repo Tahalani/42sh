@@ -19,7 +19,7 @@ void my_prompt(char **env)
     char *str2 = NULL;
     char **prompt = NULL;
 
-    if (!isatty(0))
+    if (!isatty(INPUT))
         return;
     getcwd(str, 4096);
     str2 = malloc(sizeof(char) * (len_array_1d(str) + 1));
