@@ -9,8 +9,7 @@
     #define BUILTINS_ARRAY_H_
 
     #include "mysh.h"
-
-static const int nb_builtins = 6;
+    #define nb_builtins 6
 
 int if_exit(char **commands, shell_t *);
 int if_env(char **commands, shell_t *);
