@@ -12,8 +12,11 @@
 #include "mysh.h"
 #include "my.h"
 
+char **env_prompt;
+
 int myshell(shell_t *save)
 {
+    env_prompt = save->env;
     save->str = NULL;
     size_t size;
     save->status = 0;
@@ -22,6 +25,7 @@ int myshell(shell_t *save)
     my_prompt(save->env);
     while (save->status == 0 && getline(&save->str, &size, stdin) > 0) {
         manage_separator(save);
+        env_prompt = save->env;
         if (save->status == 1)
             break;
         my_prompt(save->env);

@@ -21,8 +21,8 @@ typedef struct path_s {
 
 typedef struct shell_s {
     char *str;
-    char **env;
     char **all_commands;
+    char **env;
     int return_value;
     int status;
 } shell_t;
@@ -46,7 +46,7 @@ void launch_redirect(char const *command, char const *direction,
 void launch_double_redirect(char const *command,
     char const *direction, shell_t *save);
 
-void my_prompt(char **env);
+void my_prompt(char **);
 char *my_get_line_env(char **env, char *str);
 void put_2_elements(char *str, int *value);
 char **my_getenv(char **env, char *str);
