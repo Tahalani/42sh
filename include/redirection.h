@@ -10,7 +10,6 @@
     #define TMP_FILE "tmp_redirection"
     #include "mysh.h"
 
-
 void launch_redirect(char const *command,
     char const *direction, shell_t *save);
 

@@ -10,6 +10,7 @@ SRC			=		$(addsuffix .c,						\
 							$(addprefix utils/,			\
 								my_getenv				\
 								my_get_line_env 		\
+								my_clean_str			\
 							)							\
 							$(addprefix exec/,			\
 								check_access			\
@@ -60,6 +61,7 @@ SRC_TEST	=		$(addsuffix .c,						\
 							$(addprefix utils/,			\
 								my_getenv				\
 								my_get_line_env 		\
+								my_clean_str			\
 							)							\
 							$(addprefix exec/,			\
 								check_access			\
