@@ -5,7 +5,7 @@
 ** redirection_left
 */
 
-#include <stddef.h>
+#include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
@@ -44,22 +44,21 @@ void launch_redirect_left(char const *command,
 void launch_double_redirect_left(char const *direction, shell_t *save)
 {
     char *word_after_redirection = my_clean_str(direction);
-    save->str = NULL;
     size_t size;
     save->status = 0;
 
+    free(save->str);
+    save->str = NULL;
     if (word_after_redirection == NULL)
         return;
-    signal(SIGINT, ctrl_c);
     my_putstr("? ");
     while (getline(&save->str, &size, stdin) > 0) {
         save->str[strlen(save->str) - 1] = '\0';
-        if (signal(SIGINT, ctrl_c))
-            break;
         if (strcmp(save->str, word_after_redirection) == 0)
             break;
         my_putstr("? ");
     }
+    free(word_after_redirection);
 }
 
 char **manage_redirection_left(char const *commands,
@@ -69,8 +68,9 @@ char **manage_redirection_left(char const *commands,
     if (command == NULL ||
     handly_error_redirection(command, commands) == -1)
         return (NULL);
-    if (strstr(commands, "<<") != NULL)
+    if (strstr(commands, "<<") != NULL) {
         launch_double_redirect_left(command[1], save);
+    }
     else if (strstr(commands, "<") != NULL)
         launch_redirect_left(command[0], command[1], save);
     return (command);
