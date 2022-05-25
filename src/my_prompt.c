@@ -9,8 +9,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "mysh.h"
 #include "my.h"
+#include "mysh.h"
 #include "color.h"
 
 void my_prompt(char **env)
@@ -27,9 +27,9 @@ void my_prompt(char **env)
         return;
     tmp = my_strcpy(tmp, filepath);
     prompt = my_stwa_separator(tmp, "/");
-    my_printf("%s[%s%s%s@%s%s %s%s%s]%s$%s>%s ", yellow, green,
-        my_get_line_env(env, "USER="), yellow, purple,
-        my_get_line_env(env, "HOSTNAME="), red,
-        prompt[my_len_array(prompt) - 1], yellow, cyan, yellow, white);
+    my_printf("%s[%s%s%s@%s%s %s%s%s]%s$%s>%s ", YELLOW, GREEN,
+        my_get_line_env(env, "USER="), YELLOW, PURPLE,
+        my_get_line_env(env, "HOSTNAME="), RED,
+        prompt[my_len_array(prompt) - 1], YELLOW, CYAN, YELLOW, WHITE);
     my_freef("%s%t", tmp, prompt);
 }
