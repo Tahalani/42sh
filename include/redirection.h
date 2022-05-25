@@ -25,7 +25,8 @@ int handly_error_redirection(char **command, char const *commands);
 
 void manage_redirection(char const *commands, shell_t *save);
 
-void launch_double_redirect_left(char const *direction, shell_t *save);
+void launch_double_redirect_left(char const *command,
+    char const *direction, shell_t *save);
 
 char **manage_redirection_left(char const *commands,
     shell_t *save, char **command);
