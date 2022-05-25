@@ -93,9 +93,8 @@ char **manage_redirection_left(char const *commands,
     if (command == NULL ||
     handly_error_redirection(command, commands) == -1)
         return (NULL);
-    if (strstr(commands, "<<") != NULL) {
+    if (strstr(commands, "<<") != NULL)
         launch_double_redirect_left(command[0], command[1], save);
-    }
     else if (strstr(commands, "<") != NULL)
         launch_redirect_left(command[0], command[1], save);
     return (command);
