@@ -7,6 +7,7 @@
 
 #include <stddef.h>
 #include <string.h>
+#include <stdbool.h>
 
 #include "my.h"
 #include "echo.h"
@@ -14,7 +15,7 @@
 int is_arg_hyphen_n(char *commands)
 {
     return (strcmp(commands, "-n") == 0 || strcmp(commands, "\'-n\'") == 0 ||
-    strcmp(commands, "\"-n\"") == 0) ? 1 : 0;
+    strcmp(commands, "\"-n\"") == 0) ? true : false;
 }
 
 int verif_option_echo(char *commands)
@@ -22,7 +23,7 @@ int verif_option_echo(char *commands)
     return (strcmp(commands, "-e") == 0 || strcmp(commands, "\"-e\"") == 0 ||
     strcmp(commands, "-E") == 0 || strcmp(commands, "\"-E\"") == 0 ||
     strcmp(commands, "\'-e\'") == 0 ||
-    strcmp(commands, "\'-E\'") == 0) ? 1 : 0;
+    strcmp(commands, "\'-E\'") == 0) ? true : false;
 }
 
 int verif_solo_quote(char **commands)

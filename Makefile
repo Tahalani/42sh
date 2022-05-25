@@ -5,94 +5,101 @@
 ## FreeKOSOVO
 ##
 
-SRC     	=		$(addsuffix .c,						\
-						$(addprefix src/,				\
-							$(addprefix utils/,			\
-								my_getenv				\
-								my_get_line_env 		\
-							)							\
-							$(addprefix exec/,			\
-								check_access			\
-								check_crash				\
-								check_path				\
-								error_execve			\
-								gettype 				\
-							)					 		\
-							$(addprefix builtins/,		\
-								$(addprefix cd/,		\
-									error_cd			\
-									pwd					\
-									cd 					\
-								)						\
-								$(addprefix setenv/,	\
-									my_setenv			\
-									error_setenv		\
-									error_setenv2 		\
-								)						\
-								$(addprefix echo/,		\
-								print_echo_if_arg		\
-								my_echo					\
-								echo_handle_backslash	\
-								verif_echo_arg			\
-								)						\
-								if_builtins				\
-								if_builtins_2			\
-								my_unsetenv				\
-								exit					\
-								manage_builtins 		\
-							)							\
-							error						\
-							mysh						\
-							ctrl_c						\
-							redirection					\
-							manage_commands				\
-							pipe						\
-							main 						\
-						) 								\
+SRC     	=		$(addsuffix .c,							\
+						$(addprefix src/,					\
+							$(addprefix utils/,				\
+								my_getenv					\
+								my_get_line_env 			\
+							)								\
+							$(addprefix exec/,				\
+								check_access				\
+								check_crash					\
+								check_path					\
+								error_execve				\
+								gettype 					\
+							)					 			\
+							$(addprefix builtins/,			\
+								$(addprefix cd/,			\
+									error_cd				\
+									pwd						\
+									cd 						\
+								)							\
+								$(addprefix setenv/,		\
+									my_setenv				\
+									error_setenv			\
+									error_setenv2 			\
+								)							\
+								$(addprefix echo/,			\
+									print_echo_if_arg		\
+									my_echo					\
+									echo_handle_backslash	\
+									verif_echo_arg			\
+								)							\
+								if_builtins					\
+								if_builtins_2				\
+								my_unsetenv					\
+								exit						\
+								manage_builtins 			\
+							)								\
+							error							\
+							mysh							\
+							ctrl_c							\
+							redirection						\
+							manage_commands					\
+							pipe							\
+							main 							\
+						) 									\
 					)
 
-SRC_TEST	=		$(addsuffix .c,						\
-						$(addprefix tests/,				\
-							tests_unit_access			\
-							tests_unit_setenv			\
-							tests_unit_cd				\
-							tests_unit_mysh				\
-							tests_error					\
-						)								\
-						$(addprefix src/,				\
-							$(addprefix utils/,			\
-								my_getenv				\
-								my_get_line_env 		\
-							)							\
-							$(addprefix exec/,			\
-								check_access			\
-								check_crash				\
-								check_path				\
-								error_execve			\
-								gettype 				\
-							)							\
-							$(addprefix builtins/,		\
-								$(addprefix cd/,		\
-									error_cd			\
-									pwd					\
-									cd 					\
-								)						\
-								$(addprefix setenv/,	\
-									my_setenv			\
-									error_setenv		\
-									error_setenv2 		\
-								)						\
-								if_builtins				\
-								my_unsetenv				\
-								exit					\
-								manage_builtins 		\
-							)							\
-							error						\
-							redirection					\
-							pipe						\
-							manage_commands				\
-							ctrl_c 						\
-						)								\
+SRC_TEST	=		$(addsuffix .c,							\
+						$(addprefix tests/,					\
+							tests_unit_access				\
+							tests_unit_setenv				\
+							tests_unit_cd					\
+							tests_unit_mysh					\
+							tests_error						\
+						)									\
+						$(addprefix src/,					\
+							$(addprefix utils/,				\
+								my_getenv					\
+								my_get_line_env 			\
+							)								\
+							$(addprefix exec/,				\
+								check_access				\
+								check_crash					\
+								check_path					\
+								error_execve				\
+								gettype 					\
+							)								\
+							$(addprefix builtins/,			\
+								$(addprefix cd/,			\
+									error_cd				\
+									pwd						\
+									cd 						\
+								)							\
+								$(addprefix setenv/,		\
+									my_setenv				\
+									error_setenv			\
+									error_setenv2 			\
+								)							\
+								$(addprefix echo/,			\
+									print_echo_if_arg		\
+									my_echo					\
+									echo_handle_backslash	\
+									verif_echo_arg			\
+								)							\
+								if_builtins					\
+								if_builtins_2				\
+								my_unsetenv					\
+								exit						\
+								manage_builtins 			\
+							)								\
+							error							\
+							redirection						\
+							pipe							\
+							manage_commands					\
+							ctrl_c 							\
+						)									\
 					)
 
 OBJ     	=       $(SRC:.c=.o)
