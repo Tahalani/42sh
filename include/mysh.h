@@ -7,7 +7,6 @@
 
 #ifndef mysh
     #define mysh
-    #define filepath_history "~/.42sh_history"
     #include <sys/stat.h>
 
 typedef struct path_s {

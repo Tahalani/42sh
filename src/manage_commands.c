@@ -51,7 +51,10 @@ void manage_other_separator(char *commands, shell_t *save)
 
 void manage_separator(shell_t *save)
 {
+    char const *filepath_history =
+        my_strcat(my_get_line_env(save->env, "HOME="), "/.42sh_history");
     my_write_in_file(filepath_history, save->str);
+    my_freef("%s", filepath_history);
     save->all_commands = my_stwa_separator(save->str, ";");
     if (save->all_commands == NULL)
         return;

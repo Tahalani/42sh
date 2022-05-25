@@ -27,7 +27,10 @@ SRC     	=		$(addsuffix .c,							\
 								my_setenv					\
 								error_setenv				\
 								error_setenv2)				\
-							my_history						\
+							$(addprefix history/,			\
+								my_history					\
+								my_print_file				\
+								my_clean_file)				\
 							my_unsetenv						\
 							exit							\
 							manage_builtins)				\
@@ -59,6 +62,10 @@ SRC_TEST	=		$(addsuffix .c,					\
 						$(addprefix builtins/,				\
 							if_builtins						\
 							if_builtins_2					\
+							$(addprefix history/,			\
+								my_history					\
+								my_print_file				\
+								my_clean_file)				\
 							$(addprefix cd/,				\
 								error_cd					\
 								pwd							\
@@ -67,7 +74,6 @@ SRC_TEST	=		$(addsuffix .c,					\
 								my_setenv					\
 								error_setenv				\
 								error_setenv2)				\
-							my_history						\
 							my_unsetenv						\
 							exit							\
 							manage_builtins)				\
