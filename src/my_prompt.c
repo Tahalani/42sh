@@ -18,8 +18,10 @@ void my_prompt(char **env)
     char str[4096];
     char *str2 = NULL;
     char **prompt = NULL;
-    char const *os;
+    char const *os = NULL;
 
+    if (!isatty(0))
+        return;
     getcwd(str, 4096);
     str2 = malloc(sizeof(char) * (len_array_1d(str) + 1));
     if (str == NULL || str2 == NULL)
