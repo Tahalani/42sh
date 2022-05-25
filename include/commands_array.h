@@ -12,6 +12,7 @@
 
 static int (*COMMANDS_ARRAY[]) (char **, shell_t *) = {
     manage_builtins,
+    manage_alias,
     check_access,
     check_path
 };

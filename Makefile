@@ -18,6 +18,10 @@ SRC     	=		$(addsuffix .c,						\
 								error_execve			\
 								gettype 				\
 							)					 		\
+							$(addprefix alias/,			\
+								if_alias_ll				\
+								manage_alias			\
+							)					 		\
 							$(addprefix builtins/,		\
 								$(addprefix cd/,		\
 									error_cd			\
