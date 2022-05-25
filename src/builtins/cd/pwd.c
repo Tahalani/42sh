@@ -9,15 +9,15 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+#include "my.h"
 #include "mysh.h"
 #include "builtins.h"
-#include "my.h"
 
 int len_array_1d(char const *arr)
 {
     int i = 0;
 
-    for (; my_char_is_printable(arr[i]) != 0; i++);
+    for (i = 0; my_char_is_printable(arr[i]) != 0; i++);
     return (i);
 }
 
