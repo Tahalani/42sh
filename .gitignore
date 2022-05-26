@@ -1,0 +1,5 @@
+*.o
+.mysh_history
+*.vgcore
+*.vscode
+libmy.a

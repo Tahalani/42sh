@@ -5,13 +5,9 @@
 ** FreeKOSOVO
 */
 
-#include "alias_array.h"
+#include "alias.h"
 
 int manage_alias(char **commands, shell_t *save)
 {
-    for (int i = 0; i != 1; i++) {
-        if ((*ALIAS_ARRAY[i]) (commands, save) == 0)
-            return (0);
-    }
-    return (-1);
+    return search_in_shrc(commands, save);
 }

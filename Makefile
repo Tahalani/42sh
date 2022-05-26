@@ -19,8 +19,11 @@ SRC     	=		$(addsuffix .c,						\
 								gettype 				\
 							)					 		\
 							$(addprefix alias/,			\
-								if_alias_ll				\
+								parsing_alias			\
+								cmp_alias_and_cmd		\
 								manage_alias			\
+								copy_file_in_directory	\
+								find_alias_shrc			\
 							)					 		\
 							$(addprefix builtins/,		\
 								$(addprefix cd/,		\
@@ -116,7 +119,7 @@ COVFILES	=		*.gcno *.gcda
 
 all:	$(NAME)
 
-debug:	CFLAGS += -g3
+debug:	CFLAGS += -g
 debug:	fclean $(OBJ)
 	make debug -C lib/my
 	$(CC) -o $(NAME) $(OBJ) $(LDFLAGS)

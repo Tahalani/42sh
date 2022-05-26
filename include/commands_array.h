@@ -11,8 +11,8 @@
     #include "mysh.h"
 
 static int (*COMMANDS_ARRAY[]) (char **, shell_t *) = {
-    manage_builtins,
     manage_alias,
+    manage_builtins,
     check_access,
     check_path
 };

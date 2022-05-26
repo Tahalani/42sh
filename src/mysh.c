@@ -19,6 +19,8 @@ int myshell(shell_t *save)
 
     signal(SIGINT, ctrl_c);
     my_putstr("> ");
+    copy_file_in_directory(".42shrc",
+    my_strcat(my_get_line_env(save->env, "HOME="), "/.42shrc"));
     while (save->status == 0 && getline(&save->str, &size, stdin) > 0) {
         manage_separator(save);
         if (save->status == 1)
