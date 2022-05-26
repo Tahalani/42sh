@@ -5,86 +5,108 @@
 ## FreeKOSOVO
 ##
 
-SRC     	=		$(addsuffix .c,							\
-					$(addprefix src/,						\
-						$(addprefix utils/,					\
-							my_getenv						\
-							my_get_line_env)				\
-						$(addprefix exec/,					\
-							check_access					\
-							check_crash						\
-							check_path						\
-							error_execve					\
-							gettype)						\
-						$(addprefix builtins/,				\
-							if_builtins						\
-							if_builtins_2					\
-							$(addprefix cd/,				\
-								error_cd					\
-								pwd							\
-								cd)							\
-							$(addprefix setenv/,			\
-								my_setenv					\
-								error_setenv				\
-								error_setenv2)				\
-							$(addprefix history/,			\
-								my_history					\
-								my_print_file				\
-								my_clean_file)				\
-							my_unsetenv						\
-							exit							\
-							manage_builtins)				\
-						error								\
-						mysh								\
-						ctrl_c								\
-						redirection							\
-						manage_commands						\
-						pipe								\
-						main))
+SRC			=		$(addsuffix .c,						\
+						$(addprefix src/,				\
+							$(addprefix utils/,			\
+								my_getenv				\
+								my_get_line_env 		\
+								my_clean_str			\
+							)							\
+							$(addprefix exec/,			\
+								check_access			\
+								check_crash				\
+								check_path				\
+								error_execve			\
+								gettype					\
+							)					 		\
+							$(addprefix redirection/,	\
+								redirection				\
+								redirection_left		\
+								redirection_right		\
+							)							\
+							$(addprefix builtins/,		\
+								$(addprefix cd/,		\
+									error_cd			\
+									pwd					\
+									cd					\
+								)						\
+								$(addprefix setenv/,	\
+									my_setenv			\
+									error_setenv		\
+									error_setenv2		\
+								)						\
+								$(addprefix history/,	\
+									my_history			\
+									my_clean_file		\
+									my_print_file		\
+								)						\
+								if_builtins				\
+								if_builtins_2			\
+								my_unsetenv				\
+								exit					\
+								manage_builtins			\
+							)							\
+							error						\
+							mysh						\
+							my_prompt					\
+							ctrl_c						\
+							manage_commands				\
+							pipe						\
+							main						\
+						)								\
+					)
 
-SRC_TEST	=		$(addsuffix .c,					\
+SRC_TEST	=		$(addsuffix .c,						\
 						$(addprefix tests/,				\
-							tests_unit_access				\
-							tests_unit_setenv				\
-							tests_unit_cd					\
-							tests_unit_mysh					\
-							tests_error)					\
-						$(addprefix src/,						\
-						$(addprefix utils/,					\
-							my_getenv						\
-							my_get_line_env)				\
-						$(addprefix exec/,					\
-							check_access					\
-							check_crash						\
-							check_path						\
-							error_execve					\
-							gettype)						\
-						$(addprefix builtins/,				\
-							if_builtins						\
-							if_builtins_2					\
-							$(addprefix history/,			\
-								my_history					\
-								my_print_file				\
-								my_clean_file)				\
-							$(addprefix cd/,				\
-								error_cd					\
-								pwd							\
-								cd)							\
-							$(addprefix setenv/,			\
-								my_setenv					\
-								error_setenv				\
-								error_setenv2)				\
-							my_unsetenv						\
-							exit							\
-							manage_builtins)				\
-						error								\
-						mysh								\
-						ctrl_c								\
-						redirection							\
-						manage_commands						\
-						pipe))
+							tests_unit_access			\
+							tests_unit_setenv			\
+							tests_unit_cd				\
+							tests_unit_mysh				\
+							tests_error					\
+						)								\
+						$(addprefix src/,				\
+							$(addprefix utils/,			\
+								my_getenv				\
+								my_get_line_env 		\
+								my_clean_str			\
+							)							\
+							$(addprefix exec/,			\
+								check_access			\
+								check_crash				\
+								check_path				\
+								error_execve			\
+								gettype					\
+							)							\
+							$(addprefix redirection/,	\
+								redirection				\
+								redirection_left		\
+								redirection_right		\
+							)							\
+							$(addprefix builtins/,		\
+								$(addprefix cd/,		\
+									error_cd			\
+									pwd					\
+									cd					\
+								)						\
+								$(addprefix setenv/,	\
+									my_setenv			\
+									error_setenv		\
+									error_setenv2		\
+								)						\
+								if_builtins				\
+								my_unsetenv				\
+								exit					\
+								manage_builtins 		\
+							)							\
+							error						\
+							my_prompt					\
+							ctrl_c						\
+							manage_commands				\
+							pipe						\
+						) 								\
+					)
 
-OBJ     	=       $(SRC:.c=.o)
+OBJ			=		$(SRC:.c=.o)
 
 CC			=		gcc
 
@@ -96,11 +118,11 @@ PATH_LIB	=		lib/my/
 
 LDFLAGS		=		-L$(PATH_LIB) -lmy
 
-NAME    	=		42sh
+NAME		=		42sh
 
 NAME_TEST	=		unit_tests
 
-CPPFLAGS 	= 		-I ./include
+CPPFLAGS	=		-I ./include
 
 COVFLAGS	=		--coverage -lcriterion -lgcov
 

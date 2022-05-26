@@ -8,22 +8,27 @@
 #include <stdlib.h>
 #include <signal.h>
 #include <stdio.h>
+
 #include "mysh.h"
 #include "my.h"
 
+char **env_prompt;
+
 int myshell(shell_t *save)
 {
+    env_prompt = save->env;
     save->str = NULL;
     size_t size;
     save->status = 0;
 
     signal(SIGINT, ctrl_c);
-    my_putstr("> ");
+    my_prompt(save->env);
     while (save->status == 0 && getline(&save->str, &size, stdin) > 0) {
         manage_separator(save);
+        env_prompt = save->env;
         if (save->status == 1)
             break;
-        my_putstr("> ");
+        my_prompt(save->env);
     }
     free(save->str);
     return (0);
