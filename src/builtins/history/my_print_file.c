@@ -5,8 +5,9 @@
 ** print a file
 */
 
-#include "my.h"
 #include <string.h>
+
+#include "my.h"
 
 void my_print_file(char const *filepath)
 {
@@ -16,6 +17,8 @@ void my_print_file(char const *filepath)
     if (str == NULL)
         return;
     tab = my_stwa_separator(str, "\n");
+    if (tab == NULL)
+       return;
     for (int i = 0; tab[i] != NULL; i++)
         my_printf("%d\t%s\n", i + 1, tab[i]);
     my_freef("%s%t", str, tab);
