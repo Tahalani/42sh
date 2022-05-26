@@ -5,10 +5,16 @@
 ** FreeKOSOVO
 */
 
-#include "my.h"
+#include <stdlib.h>
+#include <unistd.h>
 
-void ctrl_c(int sig)
+#include "mysh.h"
+
+void ctrl_c(UNUSED int signal)
 {
-    my_putstr("\n> ");
-    (void)sig;
+    extern char **env_prompt;
+    char c = '\n';
+
+    write(1, &c, sizeof(char));
+    my_prompt(env_prompt);
 }

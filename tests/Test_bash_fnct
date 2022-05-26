@@ -1,0 +1,18 @@
+#!/bin/bash
+
+make -C ../
+cd ../
+
+echo "ls" | ./42sh > ../my_output.txt;
+ls > ../tcsh_output.txt 
+
+diff ../my_output.txt ../tcsh_output.txt
+if [ $? -eq 0 ]
+then
+    echo -e "\033[032mTest_ls : OK\033[0m"
+else
+    echo -e "\033[031mTest_ls : KO\033[0m"
+fi
+
+rm ../my_output.txt
+rm ../tcsh_output.txt

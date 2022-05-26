@@ -14,7 +14,7 @@ int my_strlen(char const *str);
 
 int my_write_in_file(char const *filepath, char const *text)
 {
-    int fd = open(filepath, O_CREAT | O_WRONLY | O_TRUNC, 00666);
+    int fd = open(filepath, O_CREAT | O_WRONLY | O_APPEND, 0666);
 
     if (fd == -1)
         return (-1);

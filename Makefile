@@ -7,10 +7,6 @@
 
 SRC     	=		$(addsuffix .c,							\
 						$(addprefix src/,					\
-							$(addprefix utils/,				\
-								my_getenv					\
-								my_get_line_env 			\
-							)								\
 							$(addprefix exec/,				\
 								check_access				\
 								check_crash					\
@@ -41,10 +37,20 @@ SRC     	=		$(addsuffix .c,							\
 								exit						\
 								manage_builtins 			\
 							)								\
+								$(addprefix redirection/,	\
+									redirection_left		\
+									redirection_right		\
+									redirection				\
+								)							\
+								$(addprefix utils/,			\
+									my_clean_str			\
+									my_get_line_env			\
+									my_getenv				\
+								)							\
 							error							\
 							mysh							\
 							ctrl_c							\
-							redirection						\
+							my_prompt						\
 							manage_commands					\
 							pipe							\
 							main 							\
@@ -102,7 +108,7 @@ SRC_TEST	=		$(addsuffix .c,							\
 						)									\
 					)
 
-OBJ     	=       $(SRC:.c=.o)
+OBJ			=		$(SRC:.c=.o)
 
 CC			=		gcc
 
@@ -114,11 +120,11 @@ PATH_LIB	=		lib/my/
 
 LDFLAGS		=		-L$(PATH_LIB) -lmy
 
-NAME    	=		42sh
+NAME		=		42sh
 
 NAME_TEST	=		unit_tests
 
-CPPFLAGS 	= 		-I ./include
+CPPFLAGS	=		-I ./include
 
 COVFLAGS	=		--coverage -lcriterion -lgcov
 
