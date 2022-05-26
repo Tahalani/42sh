@@ -36,7 +36,7 @@ SRC     	=		$(addsuffix .c,							\
 								my_unsetenv					\
 								exit						\
 								manage_builtins 			\
-							)								\
+								)							\
 								$(addprefix redirection/,	\
 									redirection_left		\
 									redirection_right		\
@@ -66,17 +66,13 @@ SRC_TEST	=		$(addsuffix .c,							\
 							tests_error						\
 						)									\
 						$(addprefix src/,					\
-							$(addprefix utils/,				\
-								my_getenv					\
-								my_get_line_env 			\
-							)								\
 							$(addprefix exec/,				\
 								check_access				\
 								check_crash					\
 								check_path					\
 								error_execve				\
 								gettype 					\
-							)								\
+							)					 			\
 							$(addprefix builtins/,			\
 								$(addprefix cd/,			\
 									error_cd				\
@@ -99,13 +95,24 @@ SRC_TEST	=		$(addsuffix .c,							\
 								my_unsetenv					\
 								exit						\
 								manage_builtins 			\
-							)								\
+								)							\
+								$(addprefix redirection/,	\
+									redirection_left		\
+									redirection_right		\
+									redirection				\
+								)							\
+								$(addprefix utils/,			\
+									my_clean_str			\
+									my_get_line_env			\
+									my_getenv				\
+								)							\
 							error							\
-							redirection						\
-							pipe							\
+							mysh							\
+							ctrl_c							\
+							my_prompt						\
 							manage_commands					\
-							ctrl_c 							\
-						)									\
+							pipe							\
+						) 									\
 					)
 
 OBJ			=		$(SRC:.c=.o)
