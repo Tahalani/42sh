@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2022
-** redirection
+** 42sh
 ** File description:
-** FreeKOSOVO
+** redirection_right
 */
 
 #include <sys/types.h>
@@ -10,23 +10,11 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "mysh.h"
 #include "my.h"
-
-char *my_clean_str(char const *str)
-{
-    char **new = my_str_to_word_array(str);
-    char *result = NULL;
-
-    if (new == NULL)
-        return NULL;
-    result = my_strdup(new[0]);
-    if (result == NULL)
-        return NULL;
-    my_free_array(new);
-    return result;
-}
+#include "redirection.h"
 
 void launch_redirect(char const *command, char const *direction, shell_t *save)
 {
@@ -34,6 +22,7 @@ void launch_redirect(char const *command, char const *direction, shell_t *save)
     int fd;
     char **commands = NULL;
     int fd_tmp;
+
     if (duplicate == NULL)
         return;
     fd = open(duplicate, O_CREAT | O_WRONLY | O_TRUNC, 00666);
@@ -74,26 +63,16 @@ void launch_double_redirect(char const *command,
     dup2(fd_tmp, 1);
 }
 
-int handly_error_redirection(UNUSED char **command, char const *commands)
+char **manage_redirection_right(char const *commands,
+    shell_t *save, char **command)
 {
-    if (my_len_array(command) < 2) {
-        my_puterr("Missing name for redirect.\n");
-        my_freef("%t", command);
-        return -1;
-    }
-    return 0;
-}
-
-void manage_redirection(char const *commands, shell_t *save)
-{
-    char **command = NULL;
-
     command = my_stwa_separator(commands, ">\n");
-    if (command == NULL || handly_error_redirection(command, commands) == -1)
-        return;
-    if (my_strstr(commands, ">>") != NULL)
+    if (command == NULL ||
+    handly_error_redirection(command, commands) == -1)
+        return NULL;
+    if (strstr(commands, ">>") != NULL)
         launch_double_redirect(command[0], command[1], save);
-    else
+    else if (strstr(commands, ">") != NULL)
         launch_redirect(command[0], command[1], save);
-    my_free_array(command);
+    return (command);
 }

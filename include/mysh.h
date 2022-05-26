@@ -39,13 +39,9 @@ int check_path(char **commands, shell_t *);
 void error_execve(char *str, char **commands, char **env, int *value);
 void check_status(int status, int *value);
 
+char *my_clean_str(char const *str);
 void manage_pipe(char *commands, shell_t *);
 void launch_pipe(char **command, shell_t *);
-void manage_redirection(char const *commands, shell_t *save);
-void launch_redirect(char const *command, char const *direction,
-    shell_t *save);
-void launch_double_redirect(char const *command,
-    char const *direction, shell_t *save);
 
 void my_prompt(char **);
 char *my_get_line_env(char **env, char *str);
