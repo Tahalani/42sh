@@ -5,43 +5,48 @@
 ## FreeKOSOVO
 ##
 
-SRC     	=		$(addsuffix .c,						\
+SRC			=		$(addsuffix .c,						\
 						$(addprefix src/,				\
 							$(addprefix utils/,			\
 								my_getenv				\
 								my_get_line_env 		\
+								my_clean_str			\
 							)							\
 							$(addprefix exec/,			\
 								check_access			\
 								check_crash				\
 								check_path				\
 								error_execve			\
-								gettype 				\
+								gettype					\
 							)					 		\
+							$(addprefix redirection/,	\
+								redirection				\
+								redirection_left		\
+								redirection_right		\
+							)							\
 							$(addprefix builtins/,		\
 								$(addprefix cd/,		\
 									error_cd			\
 									pwd					\
-									cd 					\
+									cd					\
 								)						\
 								$(addprefix setenv/,	\
 									my_setenv			\
 									error_setenv		\
-									error_setenv2 		\
+									error_setenv2		\
 								)						\
 								if_builtins				\
 								my_unsetenv				\
 								exit					\
-								manage_builtins 		\
+								manage_builtins			\
 							)							\
 							error						\
 							mysh						\
 							ctrl_c						\
-							redirection					\
 							manage_commands				\
 							pipe						\
-							main 						\
-						) 								\
+							main						\
+						)								\
 					)
 
 SRC_TEST	=		$(addsuffix .c,						\
@@ -56,24 +61,30 @@ SRC_TEST	=		$(addsuffix .c,						\
 							$(addprefix utils/,			\
 								my_getenv				\
 								my_get_line_env 		\
+								my_clean_str			\
 							)							\
 							$(addprefix exec/,			\
 								check_access			\
 								check_crash				\
 								check_path				\
 								error_execve			\
-								gettype 				\
+								gettype					\
+							)							\
+							$(addprefix redirection/,	\
+								redirection				\
+								redirection_left		\
+								redirection_right		\
 							)							\
 							$(addprefix builtins/,		\
 								$(addprefix cd/,		\
 									error_cd			\
 									pwd					\
-									cd 					\
+									cd					\
 								)						\
 								$(addprefix setenv/,	\
 									my_setenv			\
 									error_setenv		\
-									error_setenv2 		\
+									error_setenv2		\
 								)						\
 								if_builtins				\
 								my_unsetenv				\
@@ -81,14 +92,13 @@ SRC_TEST	=		$(addsuffix .c,						\
 								manage_builtins 		\
 							)							\
 							error						\
-							redirection					\
 							pipe						\
 							manage_commands				\
-							ctrl_c 						\
+							ctrl_c						\
 						)								\
 					)
 
-OBJ     	=       $(SRC:.c=.o)
+OBJ			=		$(SRC:.c=.o)
 
 CC			=		gcc
 
@@ -100,11 +110,11 @@ PATH_LIB	=		lib/my/
 
 LDFLAGS		=		-L$(PATH_LIB) -lmy
 
-NAME    	=		42sh
+NAME		=		42sh
 
 NAME_TEST	=		unit_tests
 
-CPPFLAGS 	= 		-I ./include
+CPPFLAGS	=		-I ./include
 
 COVFLAGS	=		--coverage -lcriterion -lgcov
 
