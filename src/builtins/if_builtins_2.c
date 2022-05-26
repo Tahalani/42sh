@@ -11,7 +11,7 @@
 
 int if_echo(char **commands, shell_t *save)
 {
-    if (my_strcmp(commands[0], "echo") == 0) {
+    if (is_writted_echo(commands) == 1) {
         save->return_value =
         my_echo(commands, save) == -1 ? 1 : 0;
         return (0);

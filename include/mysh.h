@@ -30,6 +30,7 @@ typedef struct shell_s {
 int myshell(shell_t *);
 void ctrl_c(int sig);
 int check_crash(int status, int *return_value);
+int is_writted_echo(char **commands);
 void manage_commands(char **commands, shell_t *);
 void manage_separator(shell_t *save);
 int manage_builtins(char **commands, shell_t *);
