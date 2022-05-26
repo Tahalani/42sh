@@ -84,6 +84,7 @@ void launch_double_redirect_left(char const *command,
     fd = open(TMP_FILE, O_RDONLY);
     fd_function_manipulation(command, fd, word_after_redirection, save);
     remove(TMP_FILE);
+    close(fd);
 }
 
 char **manage_redirection_left(char const *commands,
