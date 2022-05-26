@@ -14,4 +14,5 @@ else
     echo -e "\033[031mTest_ls : KO\033[0m"
 fi
 
-rm ../*txt
+rm ../my_output.txt
+rm ../tcsh_output.txt

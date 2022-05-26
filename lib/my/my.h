@@ -9,6 +9,7 @@
     #define MY_H_
 
     #define ATOD(x) (x - '0')
+    #define UNUSED __attribute__((unused))
     #define DTOA(x) (x + '0')
 
     #include <stdarg.h>

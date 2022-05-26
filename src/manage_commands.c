@@ -6,8 +6,9 @@
 */
 
 #include <stddef.h>
-#include "my.h"
 #include "commands_array.h"
+#include "redirection.h"
+#include "my.h"
 #include "mysh.h"
 
 int analyse_commands(char **commands, shell_t *save)
@@ -36,7 +37,8 @@ void manage_other_separator(char *commands, shell_t *save)
 
     if (commands == NULL)
         return;
-    if (my_char_is_in_str(commands, '>') == 1) {
+    if (my_char_is_in_str(commands, '>') == 1 ||
+    my_char_is_in_str(commands, '<') == 1) {
         manage_redirection(commands, save);
     } else if (my_char_is_in_str(commands, '|') == 1) {
         manage_pipe(commands, save);
@@ -51,6 +53,10 @@ void manage_other_separator(char *commands, shell_t *save)
 
 void manage_separator(shell_t *save)
 {
+    char const *filepath_history =
+        my_strcat(my_get_line_env(save->env, "HOME="), "/.42sh_history");
+    my_write_in_file(filepath_history, save->str);
+    my_freef("%s", filepath_history);
     save->all_commands = my_stwa_separator(save->str, ";");
     if (save->all_commands == NULL)
         return;

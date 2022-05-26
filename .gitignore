@@ -1,5 +1,6 @@
+.vscode
 *.o
-.mysh_history
-*.vgcore
-*.vscode
+*.gcno *.gcda
 libmy.a
+unit_tests
+.42sh_history
