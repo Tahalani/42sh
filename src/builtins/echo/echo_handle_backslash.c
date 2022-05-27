@@ -6,42 +6,15 @@
 */
 
 #include "my.h"
+#include "echo_array.h"
 #include "builtins.h"
 #include "echo.h"
 
-static void other_backslash(char **commands, int i, size_t *j)
+int handle_backslash(char **commands, int i, size_t *j)
 {
-    if (commands[i][*j] == '\\' && commands[i][*j + 1] == 'v') {
-        my_putchar('\v');
-        *j += 2;
+    for (int index = 0; index != 7; index++) {
+        if ((*ECHO_ARRAY[index]) (commands, i, j) == 0)
+            return (0);
     }
-    if (commands[i][*j] == '\\' && commands[i][*j + 1] == 'f') {
-        my_putchar('\f');
-        *j += 2;
-    }
-    if (commands[i][*j] == '\\' && commands[i][*j + 1] == 'r') {
-        my_putchar('\r');
-        *j += 2;
-    }
-}
-
-void handle_backslash(char **commands, int i, size_t *j)
-{
-    if (commands[i][*j] == '\\' && commands[i][*j + 1] == 'n') {
-        my_putchar('\n');
-        *j += 2;
-    }
-    if (commands[i][*j] == '\\' && commands[i][*j + 1] == 't') {
-        my_putchar('\t');
-        *j += 2;
-    }
-    if (commands[i][*j] == '\\' && commands[i][*j + 1] == 'a') {
-        my_putchar('\a');
-        *j += 2;
-    }
-    if (commands[i][*j] == '\\' && commands[i][*j + 1] == 'b') {
-        my_putchar('\b');
-        *j += 2;
-    }
-    other_backslash(commands, i, j);
+    return (-1);
 }

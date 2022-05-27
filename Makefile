@@ -30,6 +30,8 @@ SRC     	=		$(addsuffix .c,							\
 									my_echo					\
 									echo_handle_backslash	\
 									verif_echo_arg			\
+									if_backslash_2			\
+									if_backslash			\
 								)							\
 								if_builtins					\
 								if_builtins_2				\
@@ -89,6 +91,8 @@ SRC_TEST	=		$(addsuffix .c,							\
 									my_echo					\
 									echo_handle_backslash	\
 									verif_echo_arg			\
+									if_backslash_2			\
+									if_backslash			\
 								)							\
 								if_builtins					\
 								if_builtins_2				\

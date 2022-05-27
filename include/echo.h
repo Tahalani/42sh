@@ -12,7 +12,7 @@
     #include "mysh.h"
 
 int parsing_echo_word(char **commands, char *word, char c);
-void handle_backslash(char **commands, int i, size_t *j);
+int handle_backslash(char **commands, int i, size_t *j);
 int verif_option_echo(char *commands);
 int is_arg_hyphen_n(char *commands);
 void echo_opt_maj_e(char **commands, shell_t *save);
