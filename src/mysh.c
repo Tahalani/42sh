@@ -10,6 +10,7 @@
 #include <stdio.h>
 
 #include "mysh.h"
+#include "alias.h"
 #include "my.h"
 
 char **env_prompt;
@@ -33,6 +34,6 @@ int myshell(shell_t *save)
         my_prompt(save->env);
     }
     free(save->str);
-    remove("/tmp/.42shrc");
+    remove(ALIAS_TMP_FILE);
     return (0);
 }

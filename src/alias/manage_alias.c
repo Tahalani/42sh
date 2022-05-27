@@ -9,15 +9,12 @@
 
 #include "alias.h"
 
-int delete_alias(char **commands);
-int verif_unalias_arg(char **commands);
-
 int manage_alias(char **commands, shell_t *save)
 {
     int ret_val = -1;
 
     if (strcmp(commands[0], "alias") == 0) {
-        ret_val = manage_tmp_alias(commands);
+        ret_val = manage_tmp_alias(commands, save);
         if (ret_val == 0)
             save->return_value = ret_val;
         return ret_val;

@@ -63,8 +63,8 @@ int my_delete_line_in_file(char **file, char **commands, int fd, int i)
 int delete_alias(char **commands)
 {
     char **file;
-    char *buffer = file_to_buffer("/tmp/.42shrc");
-    int fd = open("/tmp/.42shrc", O_CREAT | O_RDONLY | O_WRONLY | O_TRUNC,
+    char *buffer = file_to_buffer(ALIAS_TMP_FILE);
+    int fd = open(ALIAS_TMP_FILE, O_CREAT | O_RDONLY | O_WRONLY | O_TRUNC,
     0666);
     int ret_val = 0;
 
@@ -96,26 +96,4 @@ int verif_unalias_arg(char **commands)
         return 1;
     }
     return delete_alias(commands);
-}
-
-int search_alias_already_set(char **commands)
-{
-    char **file;
-    char *buffer = file_to_buffer("/tmp/.42shrc");
-    int fd = open("/tmp/.42shrc", O_CREAT | O_RDONLY | O_WRONLY | O_TRUNC,
-    0666);
-    int ret_val = 0;
-
-    if (buffer == NULL)
-        return -1;
-    if (fd == -1) {
-        free(buffer);
-        return -1;
-    }
-    file = my_stwa_separator(buffer, "\n");
-    free(buffer);
-    for (int i = 0; file[i] != NULL; i++)
-        ret_val = my_change_line_in_file(file, commands, fd, i);
-    my_freef("%t", file);
-    return ret_val;
 }
