@@ -23,9 +23,8 @@ char ***my_alias_3d_array(char **file, int i, int cpt_nbr_alias)
     for (int j = 0; j < cpt_nbr_alias && file[i] != NULL; i++, j++)
         alias[j] = my_stwa_separator(file[i], " = \n\0");
     for (int i = 0; alias[i] != NULL; i++) {
-        for (int j = 0; alias[i][j] != NULL; j++) {
+        for (int j = 0; alias[i][j] != NULL; j++)
             cpt_arg++;
-        }
         if (cpt_arg < 3) {
             my_free_3d_array(alias);
             return NULL;

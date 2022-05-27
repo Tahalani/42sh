@@ -23,8 +23,11 @@ SRC			=		$(addsuffix .c,						\
 								parsing_alias			\
 								cmp_alias_and_cmd		\
 								manage_alias			\
+								manage_tmp_alias		\
 								copy_file_in_directory	\
 								find_alias_shrc			\
+								search_tmp_shrc			\
+								delete_and_add_alias	\
 							)					 		\
 							$(addprefix builtins/,		\
 								$(addprefix cd/,		\
@@ -111,6 +114,7 @@ SRC_TEST	=		$(addsuffix .c,						\
 								manage_alias			\
 								copy_file_in_directory	\
 								find_alias_shrc			\
+								manage_tmp_alias		\
 							)					 		\
 							error						\
 							my_prompt					\

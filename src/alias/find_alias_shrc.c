@@ -79,6 +79,10 @@ int search_in_shrc(char **commands, shell_t *save)
 
     if (file_shrc == NULL)
         return -1;
+    if (search_in_tmp_shrc(commands, save) == 0) {
+        free(file_shrc);
+        return 0;
+    }
     buffer = file_to_buffer(file_shrc);
     if (buffer == NULL) {
         free(file_shrc);
