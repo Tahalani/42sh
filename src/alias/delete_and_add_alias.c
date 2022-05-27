@@ -46,13 +46,26 @@ int my_change_line_in_file(char **file, char **commands, int fd, int i)
     return ret_val;
 }
 
-int search_alias_already_set(char **commands, shell_t *save)
+int my_delete_line_in_file(char **file, char **commands, int fd, int i)
+{
+    char *cmd = my_strcat("alias ", commands[1]);
+    int ret_val = 0;
+
+    if (strncmp(cmd, file[i], 6 + strlen(commands[1])) == 0);
+    else {
+        write(fd, file[i], strlen(file[i]));
+        write(fd, "\n", 1);
+    }
+    free(cmd);
+    return ret_val;
+}
+
+int delete_alias(char **commands)
 {
     char **file;
     char *buffer = file_to_buffer("/tmp/.42shrc");
     int fd = open("/tmp/.42shrc", O_CREAT | O_RDONLY | O_WRONLY | O_TRUNC,
     0666);
-    char *cmd = my_strcat("alias ", commands[1]);
     int ret_val = 0;
 
     if (buffer == NULL)
@@ -63,9 +76,46 @@ int search_alias_already_set(char **commands, shell_t *save)
     }
     file = my_stwa_separator(buffer, "\n");
     free(buffer);
-    for (int i = 0; file[i] != NULL; i++) {
+    for (int i = 0; file[i] != NULL; i++)
         ret_val = my_change_line_in_file(file, commands, fd, i);
+    my_freef("%t", file);
+    return ret_val;
+}
+
+int verif_unalias_arg(char **commands)
+{
+    int cpt_arg = 0;
+
+    for (; commands[cpt_arg] != NULL; cpt_arg++);
+    if (cpt_arg <= 1) {
+        my_putstr("unalias: Too few arguments\n");
+        return 1;
     }
-    my_freef("%s%t", cmd, file);
+    if (cpt_arg > 2) {
+        my_putstr("unalias: Too much arguments\n");
+        return 1;
+    }
+    return delete_alias(commands);
+}
+
+int search_alias_already_set(char **commands)
+{
+    char **file;
+    char *buffer = file_to_buffer("/tmp/.42shrc");
+    int fd = open("/tmp/.42shrc", O_CREAT | O_RDONLY | O_WRONLY | O_TRUNC,
+    0666);
+    int ret_val = 0;
+
+    if (buffer == NULL)
+        return -1;
+    if (fd == -1) {
+        free(buffer);
+        return -1;
+    }
+    file = my_stwa_separator(buffer, "\n");
+    free(buffer);
+    for (int i = 0; file[i] != NULL; i++)
+        ret_val = my_change_line_in_file(file, commands, fd, i);
+    my_freef("%t", file);
     return ret_val;
 }

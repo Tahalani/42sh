@@ -33,5 +33,6 @@ int myshell(shell_t *save)
         my_prompt(save->env);
     }
     free(save->str);
+    remove("/tmp/.42shrc");
     return (0);
 }

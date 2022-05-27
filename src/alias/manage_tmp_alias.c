@@ -14,21 +14,26 @@
 #include "alias.h"
 #include "my.h"
 
-int create_alias(char **commands, shell_t *save)
+int create_alias(char **commands)
 {
-    my_write_in_file("/tmp/.42shrc", "alias ");
-    my_write_in_file("/tmp/.42shrc", commands[1]);
-    my_write_in_file("/tmp/.42shrc", "=");
+    if (my_write_in_file("/tmp/.42shrc", "alias ") == -1)
+        return -1;
+    if (my_write_in_file("/tmp/.42shrc", commands[1]) == -1)
+        return -1;
+    if (my_write_in_file("/tmp/.42shrc", "=") == -1)
+        return -1;
     for (int i = 2; commands[i] != NULL; i++) {
-        my_write_in_file("/tmp/.42shrc", commands[i]);
+        if (my_write_in_file("/tmp/.42shrc", commands[i]) == -1)
+            return -1;
         if (commands[i + 1] != NULL)
             my_write_in_file("/tmp/.42shrc", " ");
     }
-    my_write_in_file("/tmp/.42shrc", "\n");
+    if (my_write_in_file("/tmp/.42shrc", "\n") == -1)
+        return -1;
     return 0;
 }
 
-int manage_tmp_alias(char **commands, shell_t *save)
+int manage_tmp_alias(char **commands)
 {
     int cpt_arg = 0;
 
@@ -39,8 +44,8 @@ int manage_tmp_alias(char **commands, shell_t *save)
     }
     if (cpt_arg == 2)
         return 0;
-    if (search_alias_already_set(commands, save) == 1)
+    if (search_alias_already_set(commands) == 1)
         return 0;
     else
-        return create_alias(commands, save);
+        return create_alias(commands);
 }
