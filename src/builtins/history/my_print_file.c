@@ -18,7 +18,7 @@ void my_print_file(char const *filepath)
         return;
     tab = my_stwa_separator(str, "\n");
     if (tab == NULL)
-       return;
+        return;
     for (int i = 0; tab[i] != NULL; i++)
         my_printf("%d\t%s\n", i + 1, tab[i]);
     my_freef("%s%t", str, tab);
