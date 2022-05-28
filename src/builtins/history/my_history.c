@@ -26,8 +26,8 @@ int handle_flags(char **commands, char const *filepath_history)
 int my_history(char **commands, shell_t *save)
 {
     char const *filepath_history =
-        my_strcat(my_get_line_env(save->env, "HOME="), "/.42sh_history");
-    
+    my_strcat(my_get_line_env(save->env, "HOME="), "/.42sh_history");
+
     if (filepath_history == NULL)
         return -1;
     if (my_len_array(commands) == 1) {

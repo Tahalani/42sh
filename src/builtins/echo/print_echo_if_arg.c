@@ -11,7 +11,6 @@
 #include "my.h"
 #include "echo.h"
 
-
 void print_simple_quote(char **commands, int i)
 {
     size_t size = strlen(commands[i]);
