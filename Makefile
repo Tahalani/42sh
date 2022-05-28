@@ -20,6 +20,7 @@ SRC			=		$(addsuffix .c,						\
 								gettype					\
 							)					 		\
 							$(addprefix condition/,		\
+								if_flag					\
 								if						\
 							)							\
 							$(addprefix redirection/,	\
@@ -84,6 +85,10 @@ SRC_TEST	=		$(addsuffix .c,						\
 								redirection				\
 								redirection_left		\
 								redirection_right		\
+							)							\
+							$(addprefix condition/,		\
+								if_flag					\
+								if						\
 							)							\
 							$(addprefix builtins/,		\
 								$(addprefix cd/,		\

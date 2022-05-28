@@ -19,33 +19,6 @@
 #include "if.h"
 #include "if_array.h"
 
-int if_flag_e_a(char const *commands, char **command_array, shell_t *save)
-{
-    int fd = open(command_array[2], O_RDONLY);
-
-    (void)commands;
-    (void)save;
-    if (fd == -1)
-        return (-1);
-    else {
-        close(fd);
-        return (2);
-    }
-}
-
-int if_flag_d(char const *commands, char **command_array, shell_t *save)
-{
-    DIR *dir = opendir(command_array[2]);
-
-    (void)commands;
-    (void)save;
-    if (dir != NULL) {
-        closedir(dir);
-        return (2);
-    } else
-        return (0);
-}
-
 int launch_if_getline(shell_t *save, char **command_after_comma)
 {
     size_t size;
@@ -93,7 +66,7 @@ int manage_if(char const *commands, shell_t *save)
     if (error_handling_array(commands, &command_comma,
         &command_after_comma, &command_array) == -1)
         return (-1);
-    for (int count = 0; count != 3; count++) {
+    for (int count = 0; count != flag_nbr; count++) {
         if (strcmp(command_array[1], OPT_ARRAY[count]) == 0) {
             return_value = (*OPT_FUNC[count])(commands, command_array, save);
             break;

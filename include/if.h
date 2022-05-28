@@ -22,6 +22,8 @@ int if_flag_d(char const *commands, char **command_array, shell_t *save);
 
 int if_flag_f(char const *commands, char **command_array, shell_t *save);
 
+int if_flag_r(char const *commands, char **command_array, shell_t *save);
+
 int manage_if(char const *commands, shell_t *save);
 
 #endif/* !IF_H_ */
