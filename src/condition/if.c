@@ -68,6 +68,10 @@ int error_handling_array(char const *commands, char ***command_comma,
 {
     if (*command_comma == NULL)
         return (-1);
+    if ((*command_comma)[1] == NULL) {
+        my_free_array(*command_comma);
+        return (-1);
+    }
     *command_after_comma = my_stwa_separator((*command_comma)[1], " \n");
     if (*command_after_comma == NULL)
         return (-1);
