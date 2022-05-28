@@ -19,6 +19,10 @@ SRC			=		$(addsuffix .c,							\
 								error_execve				\
 								gettype						\
 							)					 			\
+							$(addprefix condition/,			\
+								if_flag						\
+								if							\
+							)								\
 							$(addprefix redirection/,		\
 								redirection					\
 								redirection_left			\
