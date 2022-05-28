@@ -11,6 +11,7 @@
     #include "mysh.h"
 
 static int (*COMMANDS_ARRAY[]) (char **, shell_t *) = {
+    manage_variables,
     manage_builtins,
     check_access,
     check_path

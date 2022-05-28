@@ -46,6 +46,13 @@ SRC			=		$(addsuffix .c,						\
 								exit					\
 								manage_builtins			\
 							)							\
+							$(addprefix variables/,		\
+								manage_variables		\
+								exec_variables			\
+								search_variables_exist	\
+								mem_alloc_var			\
+								print_var_exists		\
+							)							\
 							error						\
 							mysh						\
 							my_prompt					\
@@ -97,6 +104,10 @@ SRC_TEST	=		$(addsuffix .c,						\
 								my_unsetenv				\
 								exit					\
 								manage_builtins 		\
+							)							\
+							$(addprefix variables/,		\
+								manage_variables		\
+								search_variables		\
 							)							\
 							error						\
 							my_prompt					\

@@ -18,6 +18,7 @@ void free_struct(shell_t *save)
 shell_t *init_struct(char const *env[])
 {
     shell_t *save = malloc(sizeof(shell_t));
+
     if (save == NULL)
         return NULL;
     save->return_value = 0;
