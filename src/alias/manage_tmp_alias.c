@@ -34,10 +34,22 @@ int create_alias(char **commands)
     return 0;
 }
 
+void cat_the_alias(char **alias, int i, int *j)
+{
+    for (; *j < my_strlen(alias[i]) && alias[i][*j] != '='; *j += 1)
+        my_putchar(alias[i][*j]);
+    *j += 1;
+    my_putstr("\t");
+    for (; *j < my_strlen(alias[i]); *j += 1)
+        my_putchar(alias[i][*j]);
+    my_putstr("\n");
+}
+
 void print_alias_already_set(char *file)
 {
     char *buffer;
     char **alias;
+    int j = 0;
  
     buffer = file_to_buffer(file);
     if (buffer == NULL)
@@ -48,9 +60,9 @@ void print_alias_already_set(char *file)
         return;
     }
     for (int i = 0; alias[i] != NULL; i++) {
+        j = 6;
         if (strncmp(alias[i], "alias ", 6) == 0 && strlen(alias[i]) > 8) {
-            my_putstr(alias[i] + 6);
-            my_putchar('\n');
+            cat_the_alias(alias, i, &j);
         }
     }
     my_freef("%s%t", buffer, alias);
@@ -64,11 +76,12 @@ int manage_tmp_alias(char **commands, shell_t *save)
 
     for (; commands[cpt_arg] != NULL; cpt_arg++);
     if (cpt_arg == 1) {
-        print_alias_already_set(path_shrc);
         print_alias_already_set(ALIAS_TMP_FILE);
+        print_alias_already_set(path_shrc);
         free(path_shrc);
         return 0;
     }
+    free(path_shrc);
     if (cpt_arg == 2)
         return 0;
     if (search_alias_already_set(commands) == 1)
