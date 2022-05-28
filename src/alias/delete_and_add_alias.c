@@ -80,7 +80,7 @@ int delete_alias(char **commands)
     }
     file = my_stwa_separator(buffer, "\n");
     free(buffer);
-    if (file == NULL)   
+    if (file == NULL)
         return -1;
     for (int i = 0; file[i] != NULL; i++)
         ret_val = my_change_line_in_file(file, commands, fd, i);
