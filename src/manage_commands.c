@@ -44,9 +44,9 @@ void manage_other_separator(char *commands, shell_t *save)
     if (my_char_is_in_str(commands, '>') == 1 ||
     my_char_is_in_str(commands, '<') == 1)
         manage_redirection(commands, save);
-    if (strstr(commands, "if"))
+    else if (strstr(commands, "if") != NULL) {
         manage_if(commands, save);
-    else if (my_char_is_in_str(commands, '|') == 1) {
+    } else if (my_char_is_in_str(commands, '|') == 1) {
         manage_pipe(commands, save);
     } else {
         command = my_str_to_word_array(commands);
@@ -71,7 +71,8 @@ void manage_separator(shell_t *save)
             save->all_commands[0] =
             strcat(save->all_commands[0], " --color=auto");
         }
-    } else
+    }
+    else
         save->all_commands = my_stwa_separator(save->str, "\n");
     if (save->all_commands == NULL)
         return;
