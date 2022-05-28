@@ -5,8 +5,8 @@
 ** FreeKOSOVO
 */
 
-#ifndef commands_array_H_
-    #define commands_array_H_
+#ifndef COMMANDS_ARRAY_H_
+    #define COMMANDS_ARRAY_H_
 
     #include "mysh.h"
 
@@ -17,4 +17,4 @@ static int (*COMMANDS_ARRAY[]) (char **, shell_t *) = {
     check_path
 };
 
-#endif/* !commands_array_H_ */
+#endif/* !COMMANDS_ARRAY_H_ */

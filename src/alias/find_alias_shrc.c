@@ -28,7 +28,7 @@ int verif_line_shrc(char **alias, int i)
     for (int j = 0; alias[i][j] != 0; j++) {
         if (alias[i][j] == '=' && (strchr(" \n\0", alias[i][j + 1]) != NULL
         || strchr(" \n\0", alias[i][j - 1]) != NULL))
-            return - 1;
+            return -1;
     }
     return 0;
 }

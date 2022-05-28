@@ -14,7 +14,7 @@
 int analyse_commands(char **commands, shell_t *save)
 {
     for (int i = 0; i != 4; i++) {
-        if ((*COMMANDS_ARRAY[i]) (commands, save) == 0)
+        if ((*COMMANDS_ARRAY[i])(commands, save) == 0)
             return (0);
     }
     return (-1);

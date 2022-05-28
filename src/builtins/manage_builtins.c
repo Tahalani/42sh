@@ -12,7 +12,7 @@
 int manage_builtins(char **commands, shell_t *save)
 {
     for (int i = 0; i != NB_BUILTINS; i++) {
-        if ((*BUILTINS_ARRAY[i]) (commands, save) == 0)
+        if ((*BUILTINS_ARRAY[i])(commands, save) == 0)
             return (0);
     }
     return (-1);
