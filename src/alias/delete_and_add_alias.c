@@ -31,6 +31,8 @@ int my_change_line_in_file(char **file, char **commands, int fd, int i)
     char *cmd = my_strcat("alias ", commands[1]);
     int ret_val = 0;
 
+    if (cmd == NULL)
+        return -1;
     if (strncmp(cmd, file[i], 6 + strlen(commands[1])) == 0) {
         write(fd, "alias ", strlen("alias "));
         write(fd, commands[1], strlen(commands[1]));
@@ -51,6 +53,8 @@ int my_delete_line_in_file(char **file, char **commands, int fd, int i)
     char *cmd = my_strcat("alias ", commands[1]);
     int ret_val = 0;
 
+    if (cmd == NULL)
+        return -1;
     if (strncmp(cmd, file[i], 6 + strlen(commands[1])) == 0);
     else {
         write(fd, file[i], strlen(file[i]));
@@ -62,7 +66,7 @@ int my_delete_line_in_file(char **file, char **commands, int fd, int i)
 
 int delete_alias(char **commands)
 {
-    char **file;
+    char **file = NULL;
     char *buffer = file_to_buffer(ALIAS_TMP_FILE);
     int fd = open(ALIAS_TMP_FILE, O_CREAT | O_RDONLY | O_WRONLY | O_TRUNC,
     0666);
@@ -76,6 +80,8 @@ int delete_alias(char **commands)
     }
     file = my_stwa_separator(buffer, "\n");
     free(buffer);
+    if (file == NULL)   
+        return -1;
     for (int i = 0; file[i] != NULL; i++)
         ret_val = my_change_line_in_file(file, commands, fd, i);
     my_freef("%t", file);

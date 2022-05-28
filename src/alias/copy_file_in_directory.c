@@ -16,7 +16,7 @@
 
 static char *my_malloc_char_star(int size)
 {
-    char *buffer;
+    char *buffer = NULL;
 
     buffer = malloc(sizeof(char) * size + 1);
     buffer[size] = '\0';
@@ -25,9 +25,9 @@ static char *my_malloc_char_star(int size)
 
 char *file_to_buffer(const char *file)
 {
-    int fd;
+    int fd = 0;
     struct stat sb;
-    char *buffer;
+    char *buffer = NULL;
 
     fd = open(file, O_RDONLY);
     if (fd == -1)

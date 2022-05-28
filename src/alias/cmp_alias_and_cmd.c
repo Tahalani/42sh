@@ -21,9 +21,9 @@ static char **mem_alloc_2d_array(int nb_rows)
 }
 
 static char **create_the_array(char **commands, char **alias, int *cpt_arg,
-int *cpt_alias_arg)
+    int *cpt_alias_arg)
 {
-    char **new_commands;
+    char **new_commands = NULL;
 
     for (int i = 1; commands[i] != NULL; *cpt_arg += 1, i++);
     for (int i = 2; alias[i] != NULL; i++, *cpt_alias_arg += 1);
@@ -35,7 +35,7 @@ char **my_malloc_alias_array(char **commands, char **alias)
 {
     int cpt_arg = 0;
     int cpt_alias_arg = 0;
-    char **new_commands;
+    char **new_commands = NULL;
     int j = 0;
 
     new_commands = create_the_array(commands, alias, &cpt_arg, &cpt_alias_arg);

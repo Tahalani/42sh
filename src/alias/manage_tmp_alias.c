@@ -47,8 +47,8 @@ void cat_the_alias(char **alias, int i, int *j)
 
 void print_alias_already_set(char *file)
 {
-    char *buffer;
-    char **alias;
+    char *buffer = NULL;
+    char **alias = NULL;
     int j = 0;
  
     buffer = file_to_buffer(file);
@@ -72,7 +72,8 @@ void print_alias_already_set(char *file)
 int manage_tmp_alias(char **commands, shell_t *save)
 {
     int cpt_arg = 0;
-    char *path_shrc = my_strcat(my_get_line_env(save->env, "HOME="), "/.42shrc");
+    char *path_shrc = my_strcat(my_get_line_env(save->env, "HOME="),
+    "/.42shrc");
 
     for (; commands[cpt_arg] != NULL; cpt_arg++);
     if (cpt_arg == 1) {

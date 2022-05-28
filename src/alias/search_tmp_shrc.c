@@ -26,7 +26,7 @@ static int verif_alias_arg(char **alias, int *cpt_arg)
 
 int search_alias_already_set(char **commands)
 {
-    char **file;
+    char **file = NULL;
     char *buffer = file_to_buffer(ALIAS_TMP_FILE);
     int fd = open(ALIAS_TMP_FILE, O_CREAT | O_RDONLY | O_WRONLY | O_TRUNC,
     0666);
@@ -40,6 +40,8 @@ int search_alias_already_set(char **commands)
     }
     file = my_stwa_separator(buffer, "\n");
     free(buffer);
+    if (file == NULL)
+        return 1;
     for (int i = 0; file[i] != NULL; i++)
         ret_val = my_change_line_in_file(file, commands, fd, i);
     my_freef("%t", file);
@@ -49,7 +51,7 @@ int search_alias_already_set(char **commands)
 static int cmp_alias_cmd(char *line, char **commands, shell_t *save)
 {
     char **alias = my_stwa_separator(line, " = \n\0");
-    char **new_commands;
+    char **new_commands = NULL;
     int cpt_arg = 0;
 
     if (alias == NULL)
@@ -87,7 +89,7 @@ int parsing_tmp_shrc(char **file, char **commands, shell_t *save)
 
 int search_in_tmp_shrc(char **commands, shell_t *save)
 {
-    char **file;
+    char **file = NULL;
     char *buffer = file_to_buffer(ALIAS_TMP_FILE);
 
     if (buffer == NULL)

@@ -10,6 +10,7 @@
     #include <sys/stat.h>
     #define UNUSED __attribute__((unused))
     #define INPUT 0
+    #define RC_FILE_NAME ".42shrc"
 
 typedef struct path_s {
     char **env;

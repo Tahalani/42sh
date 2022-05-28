@@ -35,7 +35,7 @@ int verif_line_shrc(char **alias, int i)
 
 int alias_part(char **file, int i, char **commands, shell_t *save)
 {
-    char ***alias;
+    char ***alias = NULL;
     int ret_val = 0;
 
     for (int j = 0; file[j] != NULL; j++) {
@@ -55,13 +55,15 @@ int alias_part(char **file, int i, char **commands, shell_t *save)
 
 static int parsing_shrc(char *buffer, char **commands, shell_t *save)
 {
-    char **file;
+    char **file = NULL;
 
     if (strncmp(buffer, "# Welcome to our beautiful 42SHRC !!!\n", 37) != 0)
         return -1;
     if (strstr(buffer, "# Alias\n") == NULL || strstr(buffer, "alias") == NULL)
         return -1;
     file = my_stwa_separator(buffer, "\n");
+    if (file == NULL)
+        return -1;
     for (int i = 0; file[i] != NULL; i++) {
         if (strncmp(file[i], "alias", 5) == 0) {
             return (alias_part(file, i, commands, save));
@@ -73,7 +75,7 @@ static int parsing_shrc(char *buffer, char **commands, shell_t *save)
 
 int search_in_shrc(char **commands, shell_t *save)
 {
-    char *buffer;
+    char *buffer = NULL;
     char *file_shrc = my_strcat(my_get_line_env(save->env, "HOME="),
     "/.42shrc");
 
