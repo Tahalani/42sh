@@ -78,3 +78,16 @@ int if_flag_w(UNUSED char const *commands,
     } else
         return (0);
 }
+
+int if_flag_x(UNUSED char const *commands,
+    char **command_array, UNUSED shell_t *save)
+{
+    struct stat stats;
+
+    if (stat(command_array[2], &stats) == -1)
+        return (-1);
+    if (stat(command_array[2], &stats) == 0 && stats.st_mode & S_IXUSR) {
+        return (2);
+    } else
+        return (0);
+}

@@ -11,14 +11,15 @@
     #include "if.h"
     #include "my.h"
 
-static const int flag_nbr = 5;
+static const int flag_nbr = 6;
 
 static int (*OPT_FUNC[]) (char const *, char **, shell_t *save) = {
     if_flag_e_a,
     if_flag_d,
     if_flag_e_a,
     if_flag_r,
-    if_flag_w
+    if_flag_w,
+    if_flag_x
 };
 
 static const char *OPT_ARRAY[] = {
@@ -26,7 +27,8 @@ static const char *OPT_ARRAY[] = {
     "-d",
     "-e",
     "-r",
-    "-w"
+    "-w",
+    "-x"
 };
 
 #endif/* !IF_ARRAY_H_ */
