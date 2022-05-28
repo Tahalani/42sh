@@ -55,31 +55,3 @@ fi
 
 rm ../my_output.txt
 rm ../tcsh_output.txt
-
-# echo "ls >> ../my_output.txt" | ./42sh
-# ls >> ../tcsh_output.txt
-
-# diff ../my_output.txt ../tcsh_output.txt
-# if [ $? -eq 0 ]
-# then
-#     echo -e "\033[032mTest_cd_2 : OK\033[0m"
-# else
-#     echo -e "\033[031mTest_cd_2 : KO\033[0m"
-# fi
-
-# rm ../my_output.txt
-# rm ../tcsh_output.txt
-
-# echo "cat Makefile < ../my_output.txt" | ./42sh > ../my_output.txt
-# (cat Makefile < ../my_output.txt) > ../tcsh_output.txt 
-
-# diff ../my_output.txt ../tcsh_output.txt
-# if [ $? -eq 0 ]
-# then
-#     echo -e "\033[032mTest_cd_3 : OK\033[0m"
-# else
-#     echo -e "\033[031mTest_cd_3 : KO\033[0m"
-# fi
-
-# rm ../my_output.txt
-# rm ../tcsh_output.txt
