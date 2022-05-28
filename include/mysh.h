@@ -32,6 +32,7 @@ void ctrl_c(UNUSED int signal);
 int check_crash(int status, int *return_value);
 int manage_alias(char **commands, shell_t *save);
 void copy_file_in_directory(char *file_path, char *dest);
+int is_writted_echo(char **commands);
 void manage_commands(char **commands, shell_t *);
 void manage_separator(shell_t *save);
 int manage_builtins(char **commands, shell_t *);
