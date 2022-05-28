@@ -7,6 +7,7 @@
 
 #include <stddef.h>
 #include <string.h>
+#include <stdlib.h>
 
 #include "commands_array.h"
 #include "redirection.h"
@@ -64,6 +65,12 @@ void manage_separator(shell_t *save)
     my_freef("%s", filepath_history);
     if (strstr(save->str, "if") == NULL) {
         save->all_commands = my_stwa_separator(save->str, ";");
+        if (strncmp(save->all_commands[0], "ls", 2) == 0) {
+            save->all_commands[0] = realloc(save->all_commands[0], sizeof(char)
+            * (strlen(save->all_commands[0]) + strlen(" --color=auto") + 1));
+            save->all_commands[0] =
+            strcat(save->all_commands[0], " --color=auto");
+        }
     } else
         save->all_commands = my_stwa_separator(save->str, "\n");
     if (save->all_commands == NULL)
