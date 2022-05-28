@@ -92,6 +92,5 @@ int search_in_shrc(char **commands, shell_t *save)
         my_freef("%s%s", buffer, file_shrc);
         return -1;
     }
-    my_freef("%s%s", buffer, file_shrc);
-    return 0;
+    return my_freef("%s%s", buffer, file_shrc);;
 }
