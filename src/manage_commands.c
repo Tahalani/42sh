@@ -71,8 +71,7 @@ void manage_separator(shell_t *save)
             save->all_commands[0] =
             strcat(save->all_commands[0], " --color=auto");
         }
-    }
-    else
+    } else
         save->all_commands = my_stwa_separator(save->str, "\n");
     if (save->all_commands == NULL)
         return;
