@@ -1,0 +1,8 @@
+# Welcome to our beautiful 42SHRC !!! 
+
+
+# Alias
+alias ll=ls -l
+alias la=ls -la
+alias -=toto
+alias pp=cat Makefile

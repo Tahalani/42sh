@@ -5,113 +5,145 @@
 ## FreeKOSOVO
 ##
 
-SRC			=		$(addsuffix .c,						\
-						$(addprefix src/,				\
-							$(addprefix utils/,			\
-								my_getenv				\
-								my_get_line_env 		\
-								my_clean_str			\
-							)							\
-							$(addprefix exec/,			\
-								check_access			\
-								check_crash				\
-								check_path				\
-								error_execve			\
-								gettype					\
-							)					 		\
-							$(addprefix condition/,		\
-								if_flag					\
-								if						\
-							)							\
-							$(addprefix redirection/,	\
-								redirection				\
-								redirection_left		\
-								redirection_right		\
-							)							\
-							$(addprefix builtins/,		\
-								$(addprefix cd/,		\
-									error_cd			\
-									pwd					\
-									cd					\
-								)						\
-								$(addprefix setenv/,	\
-									my_setenv			\
-									error_setenv		\
-									error_setenv2		\
-								)						\
-								$(addprefix history/,	\
-									my_history			\
-									my_clean_file		\
-									my_print_file		\
-								)						\
-								if_builtins				\
-								if_builtins_2			\
-								my_unsetenv				\
-								exit					\
-								manage_builtins			\
-							)							\
-							error						\
-							mysh						\
-							my_prompt					\
-							ctrl_c						\
-							manage_commands				\
-							pipe						\
-							main						\
-						)								\
+SRC			=		$(addsuffix .c,							\
+						$(addprefix src/,					\
+							$(addprefix utils/,				\
+								my_getenv					\
+								my_get_line_env 			\
+								my_clean_str				\
+							)								\
+							$(addprefix exec/,				\
+								check_access				\
+								check_crash					\
+								check_path					\
+								error_execve				\
+								gettype						\
+							)					 			\
+							$(addprefix condition/,			\
+								if_flag						\
+								if							\
+							)								\
+							$(addprefix redirection/,		\
+								redirection					\
+								redirection_left			\
+								redirection_right			\
+							)								\
+							$(addprefix builtins/,			\
+								$(addprefix cd/,			\
+									error_cd				\
+									pwd						\
+									cd						\
+								)							\
+								$(addprefix echo/,			\
+									print_echo_if_arg		\
+									my_echo					\
+									echo_handle_backslash	\
+									verif_echo_arg			\
+									if_backslash_2			\
+									if_backslash			\
+								)							\
+								$(addprefix setenv/,		\
+									my_setenv				\
+									error_setenv			\
+									error_setenv2			\
+								)							\
+								$(addprefix history/,		\
+									my_history				\
+									my_clean_file			\
+									my_print_file			\
+								)							\
+								if_builtins					\
+								if_builtins_2				\
+								my_unsetenv					\
+								exit						\
+								manage_builtins				\
+							)								\
+							$(addprefix alias/,				\
+								parsing_alias				\
+								cmp_alias_and_cmd			\
+								manage_alias				\
+								copy_file_in_directory		\
+								find_alias_shrc				\
+								manage_tmp_alias			\
+								delete_and_add_alias		\
+								search_tmp_shrc				\
+							)					 			\
+							error							\
+							mysh							\
+							my_prompt						\
+							ctrl_c							\
+							manage_commands					\
+							pipe							\
+							main							\
+						)									\
 					)
 
-SRC_TEST	=		$(addsuffix .c,						\
-						$(addprefix tests/,				\
-							tests_unit_access			\
-							tests_unit_setenv			\
-							tests_unit_cd				\
-							tests_unit_mysh				\
-							tests_error					\
-						)								\
-						$(addprefix src/,				\
-							$(addprefix utils/,			\
-								my_getenv				\
-								my_get_line_env 		\
-								my_clean_str			\
-							)							\
-							$(addprefix exec/,			\
-								check_access			\
-								check_crash				\
-								check_path				\
-								error_execve			\
-								gettype					\
-							)							\
-							$(addprefix redirection/,	\
-								redirection				\
-								redirection_left		\
-								redirection_right		\
-							)							\
-							$(addprefix condition/,		\
-								if_flag					\
-								if						\
-							)							\
-							$(addprefix builtins/,		\
-								$(addprefix cd/,		\
-									error_cd			\
-									pwd					\
-									cd					\
-								)						\
-								$(addprefix setenv/,	\
-									my_setenv			\
-									error_setenv		\
-									error_setenv2		\
-								)						\
-								if_builtins				\
-								my_unsetenv				\
-								exit					\
-								manage_builtins 		\
-							)							\
-							error						\
-							my_prompt					\
-							ctrl_c						\
-							manage_commands				\
-							pipe						\
-						) 								\
+SRC_TEST	=		$(addsuffix .c,							\
+						$(addprefix src/,					\
+							$(addprefix utils/,				\
+								my_getenv					\
+								my_get_line_env 			\
+								my_clean_str				\
+							)								\
+							$(addprefix exec/,				\
+								check_access				\
+								check_crash					\
+								check_path					\
+								error_execve				\
+								gettype						\
+							)					 			\
+							$(addprefix redirection/,		\
+								redirection					\
+								redirection_left			\
+								redirection_right			\
+							)								\
+							$(addprefix builtins/,			\
+								$(addprefix cd/,			\
+									error_cd				\
+									pwd						\
+									cd						\
+								)							\
+								$(addprefix echo/,			\
+									print_echo_if_arg		\
+									my_echo					\
+									echo_handle_backslash	\
+									verif_echo_arg			\
+									if_backslash_2			\
+									if_backslash			\
+								)							\
+								$(addprefix setenv/,		\
+									my_setenv				\
+									error_setenv			\
+									error_setenv2			\
+								)							\
+								$(addprefix history/,		\
+									my_history				\
+									my_clean_file			\
+									my_print_file			\
+								)							\
+								if_builtins					\
+								if_builtins_2				\
+								my_unsetenv					\
+								exit						\
+								manage_builtins				\
+							)								\
+							$(addprefix alias/,				\
+								parsing_alias				\
+								cmp_alias_and_cmd			\
+								manage_alias				\
+								copy_file_in_directory		\
+								find_alias_shrc				\
+								manage_tmp_alias			\
+								delete_and_add_alias		\
+								search_tmp_shrc				\
+							)					 			\
+							error							\
+							mysh							\
+							my_prompt						\
+							ctrl_c							\
+							manage_commands					\
+							pipe							\
+						)									\
 					)
 
 OBJ			=		$(SRC:.c=.o)
@@ -138,7 +170,7 @@ COVFILES	=		*.gcno *.gcda
 
 all:	$(NAME)
 
-debug:	CFLAGS += -g3
+debug:	CFLAGS += -g
 debug:	fclean $(OBJ)
 	make debug -C lib/my
 	$(CC) -o $(NAME) $(OBJ) $(LDFLAGS)

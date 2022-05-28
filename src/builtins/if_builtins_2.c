@@ -5,10 +5,19 @@
 ** FreeKOSOVO
 */
 
-#include <stddef.h>
-
 #include "my.h"
 #include "builtins.h"
+#include "mysh.h"
+
+int if_echo(char **commands, shell_t *save)
+{
+    if (is_writted_echo(commands) == 1) {
+        save->return_value =
+        my_echo(commands, save) == -1 ? 1 : 0;
+        return (0);
+    }
+    return (1);
+}
 
 int if_history(char **commands, shell_t *save)
 {

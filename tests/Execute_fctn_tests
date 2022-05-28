@@ -1,0 +1,8 @@
+#!/bin/bash
+
+make -C ../
+cd ../
+
+
+./tests/tests_fntc/Test_builtin_echo
+./tests/tests_fntc/Test_alias
