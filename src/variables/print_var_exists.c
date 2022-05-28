@@ -24,8 +24,8 @@ void cat_the_var(char **var, int i, int *j)
 
 void print_var_already_set(char *file)
 {
-    char *buffer;
-    char **var;
+    char *buffer = NULL;
+    char **var = NULL;
     int j = 0;
 
     buffer = my_file_in_str(file);

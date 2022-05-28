@@ -16,7 +16,7 @@
 
 char ***my_var_3d_array(char **file, int i, int cpt_nbr_var)
 {
-    char ***var;
+    char ***var = NULL;
     int cpt_arg = 0;
 
     var = malloc(sizeof(char **) * (cpt_nbr_var + 1));
@@ -47,7 +47,7 @@ static char **mem_alloc_2d_array(int nb_rows)
 static char **create_the_var_array(char **commands, char **var, int *cpt_arg,
 int *cpt_var_arg)
 {
-    char **new_commands;
+    char **new_commands = NULL;
 
     for (int i = 1; commands[i] != NULL; *cpt_arg += 1, i++);
     for (int i = 2; var[i] != NULL; i++, *cpt_var_arg += 1);
@@ -59,7 +59,7 @@ char **my_malloc_var_array(char **commands, char **var)
 {
     int cpt_arg = 0;
     int cpt_var_arg = 0;
-    char **new_commands;
+    char **new_commands = NULL;
     int j = 0;
 
     new_commands = create_the_var_array(commands, var, &cpt_arg, &cpt_var_arg);
@@ -81,7 +81,7 @@ char **my_malloc_var_array(char **commands, char **var)
 
 char ***parsing_var(char **file, int i)
 {
-    char ***var;
+    char ***var = NULL;
     int cpt_nbr_var = 0;
 
     for (int j = i; file[j] != NULL && my_strncmp(file[j], "var", 3) == 0;

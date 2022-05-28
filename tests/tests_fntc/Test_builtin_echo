@@ -1,0 +1,57 @@
+#!/bin/bash
+
+echo "echo ls" | ./42sh > ../my_output.txt;
+echo ls > ../tcsh_output.txt 
+
+diff ../my_output.txt ../tcsh_output.txt
+if [ $? -eq 0 ]
+then
+    echo -e "\033[032mTest_echo_1 : OK\033[0m"
+else
+    echo -e "\033[031mTest_echo_1 : KO\033[0m"
+fi
+
+rm ../my_output.txt
+rm ../tcsh_output.txt
+
+echo "echo -n ls \'toto$?\'" | ./42sh > ../my_output.txt;
+echo -n ls \'toto$?\' > ../tcsh_output.txt 
+
+diff ../my_output.txt ../tcsh_output.txt
+if [ $? -eq 0 ]
+then
+    echo -e "\033[032mTest_echo_2 : OK\033[0m"
+else
+    echo -e "\033[031mTest_echo_2 : KO\033[0m"
+fi
+
+rm ../my_output.txt
+rm ../tcsh_output.txt
+
+echo "echo -e ls \'toto$?\'" | ./42sh > ../my_output.txt;
+echo -e ls \'toto$?\' > ../tcsh_output.txt 
+
+diff ../my_output.txt ../tcsh_output.txt
+if [ $? -eq 0 ]
+then
+    echo -e "\033[032mTest_echo_3 : OK\033[0m"
+else
+    echo -e "\033[031mTest_echo_3 : KO\033[0m"
+fi
+
+rm ../my_output.txt
+rm ../tcsh_output.txt
+
+echo "echo -E ls \'toto$?\' encore une phrase$" | ./42sh > ../my_output.txt;
+echo -E ls \'toto$?\' encore une phrase$ > ../tcsh_output.txt 
+
+diff ../my_output.txt ../tcsh_output.txt
+if [ $? -eq 0 ]
+then
+    echo -e "\033[032mTest_echo_4 : OK\033[0m"
+else
+    echo -e "\033[031mTest_echo_4 : KO\033[0m"
+fi
+
+rm ../my_output.txt
+rm ../tcsh_output.txt

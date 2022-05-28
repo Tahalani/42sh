@@ -43,7 +43,7 @@ int cmp_var_and_cmd(char ***alias, char **commands, shell_t *save)
 
 int var_part(char **file, int i, char **commands, shell_t *save)
 {
-    char ***var;
+    char ***var = NULL;
     int ret_val = 0;
 
     var = parsing_var(file, i);
@@ -56,7 +56,7 @@ int var_part(char **file, int i, char **commands, shell_t *save)
 
 static int parsing_tmp_var_file(char *buffer, char **commands, shell_t *save)
 {
-    char **file;
+    char **file = NULL;
 
     if (strstr(buffer, commands[0]) == NULL || strstr(buffer, "var") == NULL)
         return -1;
@@ -74,7 +74,7 @@ static int parsing_tmp_var_file(char *buffer, char **commands, shell_t *save)
 
 int search_in_tmp_var_file(char **commands, shell_t *save)
 {
-    char *buffer;
+    char *buffer = NULL;
 
     buffer = my_file_in_str(VARIABLES_TMP_FILE);
     if (buffer == NULL) {

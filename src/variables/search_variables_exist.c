@@ -54,6 +54,8 @@ int my_change_line_in_file(char **file, char **commands, int fd, int i)
     char *cmd = my_strcat("var ", commands[1]);
     int ret_val = 0;
 
+    if (cmd == NULL)
+        return -1;
     if (strncmp(cmd, file[i], 4 + strlen(commands[1])) == 0) {
         write(fd, "var ", strlen("var "));
         write(fd, commands[1], strlen(commands[1]));
@@ -69,9 +71,17 @@ int my_change_line_in_file(char **file, char **commands, int fd, int i)
     return ret_val;
 }
 
+void modif_variable_value(char **file, char **commands, int fd, int *ret_val)
+{
+    for (int i = 0; file[i] != NULL; i++) {
+        if (my_change_line_in_file(file, commands, fd, i) == 1)
+            *ret_val = 1;
+    }
+}
+
 int search_variables_already_set(char **commands)
 {
-    char **file;
+    char **file = NULL;
     char *buffer = my_file_in_str(VARIABLES_TMP_FILE);
     int fd = open(VARIABLES_TMP_FILE, O_CREAT | O_RDONLY | O_WRONLY | O_TRUNC,
     0666);
@@ -85,10 +95,10 @@ int search_variables_already_set(char **commands)
     }
     file = my_stwa_separator(buffer, "\n");
     free(buffer);
-    for (int i = 0; file[i] != NULL; i++) {
-        if (my_change_line_in_file(file, commands, fd, i) == 1)
-            ret_val = 1;
-    }
+    if (file == NULL)
+        return -1;
+    modif_variable_value(file, commands, fd, &ret_val);
     my_freef("%t", file);
+    close(fd);
     return ret_val;
 }
