@@ -66,3 +66,15 @@ int if_flag_r(UNUSED char const *commands,
         return (0);
     }
 }
+
+int if_flag_w(UNUSED char const *commands,
+    char **command_array, UNUSED shell_t *save)
+{
+    int fd = open(command_array[2], O_RDONLY | O_WRONLY);
+
+    if (fd != -1 && write(fd, "test", strlen("test")) != -1) {
+        close(fd);
+        return (2);
+    } else
+        return (0);
+}
