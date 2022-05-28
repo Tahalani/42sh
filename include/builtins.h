@@ -15,6 +15,7 @@
 
 int manage_builtins(char **commands, shell_t *);
 int my_exit(char **commands, shell_t *);
+int my_echo(char **commands, shell_t *);
 int my_history(char **commands, shell_t *);
 
 #endif/* !BUILTINS_H_ */

@@ -22,7 +22,7 @@ char *my_int_to_str(int nb)
         return (NULL);
     str[len] = '\0';
     while (len--) {
-        str[len] = nb % 10  + '0';
+        str[len] = nb % 10 + '0';
         nb /= 10;
     }
     return (str);

@@ -33,7 +33,7 @@ int my_change_line_in_file(char **file, char **commands, int fd, int i)
 
     if (cmd == NULL)
         return -1;
-    if (strncmp(cmd, file[i], 6 + strlen(commands[1])) == 0) {
+    if (strcmp(cmd, file[i]) == 0) {
         write(fd, "alias ", strlen("alias "));
         write(fd, commands[1], strlen(commands[1]));
         write(fd, "=", 1);

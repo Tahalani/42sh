@@ -16,7 +16,7 @@
 
 static int verif_alias_arg(char **alias, int *cpt_arg)
 {
-    for (; alias[*cpt_arg] != NULL; *cpt_arg += 1);
+    while (alias[(*cpt_arg)++] != NULL);
     if (*cpt_arg < 3) {
         my_free_array(alias);
         return -1;
@@ -41,7 +41,7 @@ int search_alias_already_set(char **commands)
     file = my_stwa_separator(buffer, "\n");
     free(buffer);
     if (file == NULL)
-        return 1;
+        return -1;
     for (int i = 0; file[i] != NULL; i++)
         ret_val = my_change_line_in_file(file, commands, fd, i);
     my_freef("%t", file);

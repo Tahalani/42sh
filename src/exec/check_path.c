@@ -28,13 +28,16 @@ static int loop_path(path_t *path, int i, pid_t pid, int *value)
 
 int check_path(char **commands, shell_t *save)
 {
-    path_t path;
     pid_t pid = 0;
+    path_t path = {.bin = my_getenv(save->env, "PATH="),
+        .str = my_strcat("/", commands[0]), .commands = commands,
+        .env = save->env};
 
-    path.bin = my_getenv(save->env, "PATH=");
-    path.str = my_strcat("/", commands[0]);
-    path.commands = commands;
-    path.env = save->env;
+    if (path.bin == NULL) {
+        my_puterr("TERM environment variable not set.\n");
+        my_freef("%s", path.str);
+        return -1;
+    }
     my_strcat_in_array(path.bin, path.str);
     free(path.str);
     for (int i = 0; path.bin[i] != NULL; i++) {
