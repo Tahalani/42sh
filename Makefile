@@ -5,25 +5,30 @@
 ## FreeKOSOVO
 ##
 
-SRC     	=		$(addsuffix .c,							\
+SRC			=		$(addsuffix .c,							\
 						$(addprefix src/,					\
+							$(addprefix utils/,				\
+								my_getenv					\
+								my_get_line_env 			\
+								my_clean_str				\
+							)								\
 							$(addprefix exec/,				\
 								check_access				\
 								check_crash					\
 								check_path					\
 								error_execve				\
-								gettype 					\
+								gettype						\
 							)					 			\
+							$(addprefix redirection/,		\
+								redirection					\
+								redirection_left			\
+								redirection_right			\
+							)								\
 							$(addprefix builtins/,			\
 								$(addprefix cd/,			\
 									error_cd				\
 									pwd						\
-									cd 						\
-								)							\
-								$(addprefix setenv/,		\
-									my_setenv				\
-									error_setenv			\
-									error_setenv2 			\
+									cd						\
 								)							\
 								$(addprefix echo/,			\
 									print_echo_if_arg		\
@@ -33,58 +38,56 @@ SRC     	=		$(addsuffix .c,							\
 									if_backslash_2			\
 									if_backslash			\
 								)							\
+								$(addprefix setenv/,		\
+									my_setenv				\
+									error_setenv			\
+									error_setenv2			\
+								)							\
+								$(addprefix history/,		\
+									my_history				\
+									my_clean_file			\
+									my_print_file			\
+								)							\
 								if_builtins					\
 								if_builtins_2				\
 								my_unsetenv					\
 								exit						\
-								manage_builtins 			\
-								)							\
-								$(addprefix redirection/,	\
-									redirection_left		\
-									redirection_right		\
-									redirection				\
-								)							\
-								$(addprefix utils/,			\
-									my_clean_str			\
-									my_get_line_env			\
-									my_getenv				\
-								)							\
+								manage_builtins				\
+							)								\
 							error							\
 							mysh							\
-							ctrl_c							\
 							my_prompt						\
+							ctrl_c							\
 							manage_commands					\
 							pipe							\
-							main 							\
-						) 									\
+							main							\
+						)									\
 					)
 
 SRC_TEST	=		$(addsuffix .c,							\
-						$(addprefix tests/,					\
-							tests_unit_access				\
-							tests_unit_setenv				\
-							tests_unit_cd					\
-							tests_unit_mysh					\
-							tests_error						\
-						)									\
 						$(addprefix src/,					\
+							$(addprefix utils/,				\
+								my_getenv					\
+								my_get_line_env 			\
+								my_clean_str				\
+							)								\
 							$(addprefix exec/,				\
 								check_access				\
 								check_crash					\
 								check_path					\
 								error_execve				\
-								gettype 					\
+								gettype						\
 							)					 			\
+							$(addprefix redirection/,		\
+								redirection					\
+								redirection_left			\
+								redirection_right			\
+							)								\
 							$(addprefix builtins/,			\
 								$(addprefix cd/,			\
 									error_cd				\
 									pwd						\
-									cd 						\
-								)							\
-								$(addprefix setenv/,		\
-									my_setenv				\
-									error_setenv			\
-									error_setenv2 			\
+									cd						\
 								)							\
 								$(addprefix echo/,			\
 									print_echo_if_arg		\
@@ -94,29 +97,29 @@ SRC_TEST	=		$(addsuffix .c,							\
 									if_backslash_2			\
 									if_backslash			\
 								)							\
+								$(addprefix setenv/,		\
+									my_setenv				\
+									error_setenv			\
+									error_setenv2			\
+								)							\
+								$(addprefix history/,		\
+									my_history				\
+									my_clean_file			\
+									my_print_file			\
+								)							\
 								if_builtins					\
 								if_builtins_2				\
 								my_unsetenv					\
 								exit						\
-								manage_builtins 			\
-								)							\
-								$(addprefix redirection/,	\
-									redirection_left		\
-									redirection_right		\
-									redirection				\
-								)							\
-								$(addprefix utils/,			\
-									my_clean_str			\
-									my_get_line_env			\
-									my_getenv				\
-								)							\
+								manage_builtins				\
+							)								\
 							error							\
 							mysh							\
-							ctrl_c							\
 							my_prompt						\
+							ctrl_c							\
 							manage_commands					\
 							pipe							\
-						) 									\
+						)									\
 					)
 
 OBJ			=		$(SRC:.c=.o)

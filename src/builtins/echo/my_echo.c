@@ -16,7 +16,9 @@
 
 void print_simple_case(char *commands, shell_t *save)
 {
-    for (size_t i = 0; i < strlen(commands); i++) {
+    size_t size = strlen(commands);
+
+    for (size_t i = 0; i < size; i++) {
         if (commands[i] == '\\' || (commands[i] == '\"'
         && i == strlen(commands) - 1))
             continue;

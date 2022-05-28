@@ -11,12 +11,12 @@
 #include "my.h"
 #include "echo.h"
 
-void print_with_backslash(char **commands, int i, shell_t *save);
-int handle_echo_variable(char *commands, shell_t *save);
 
 void print_simple_quote(char **commands, int i)
 {
-    for (size_t j = 1; j < strlen(commands[i]); j++) {
+    size_t size = strlen(commands[i]);
+
+    for (size_t j = 1; j < size; j++) {
         if (commands[i][j] == '\'' && j == strlen(commands[i]) - 1)
             break;
         handle_backslash(commands, i, &j);
@@ -28,7 +28,9 @@ void print_simple_quote(char **commands, int i)
 
 void print_quote_case(char *commands, shell_t *save)
 {
-    for (size_t i = 1; i < strlen(commands); i++) {
+    size_t size = strlen(commands);
+
+    for (size_t i = 1; i < size; i++) {
         if (i == strlen(commands) - 1 && (commands[i] == '\"' ||
         commands[i] == '\''))
             break;
