@@ -6,7 +6,6 @@
 */
 
 #include "my.h"
-#include "echo_array.h"
 #include "echo.h"
 
 int if_backlash_n(char **commands, int i, size_t *j)
