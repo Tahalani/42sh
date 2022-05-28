@@ -21,7 +21,7 @@
 
 int launch_if_getline(shell_t *save, char **command_after_comma)
 {
-    size_t size;
+    size_t size = 0;
 
     free(save->str);
     save->str = NULL;

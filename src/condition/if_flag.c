@@ -23,8 +23,6 @@ int if_flag_e_a(UNUSED char const *commands,
 {
     int fd = open(command_array[2], O_RDONLY);
 
-    (void)commands;
-    (void)save;
     if (fd == -1)
         return (-1);
     else {
@@ -38,8 +36,6 @@ int if_flag_d(UNUSED char const *commands,
 {
     DIR *dir = opendir(command_array[2]);
 
-    (void)commands;
-    (void)save;
     if (dir != NULL) {
         closedir(dir);
         return (2);
@@ -51,7 +47,7 @@ int if_flag_r(UNUSED char const *commands,
     char **command_array, UNUSED shell_t *save)
 {
     struct stat stats;
-    char *buffer;
+    char *buffer = NULL;
     int fd = open(command_array[2], O_RDONLY);
 
     if (stat(command_array[2], &stats) == -1)
