@@ -23,6 +23,13 @@ void initialise_value(shell_t *save)
     save->status = 0;
 }
 
+void close_program(shell_t *save)
+{
+    remove(VARIABLES_TMP_FILE);
+    free(save->str);
+    remove(ALIAS_TMP_FILE);
+}
+
 int myshell(shell_t *save)
 {
     size_t size;
@@ -42,8 +49,6 @@ int myshell(shell_t *save)
             break;
         my_prompt(save->env);
     }
-    remove(VARIABLES_TMP_FILE);
-    free(save->str);
-    remove(ALIAS_TMP_FILE);
+    close_program(save);
     return (0);
 }
