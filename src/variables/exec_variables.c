@@ -11,14 +11,6 @@
 #include "variables.h"
 #include "my.h"
 
-void my_free_3d_array(char ***array)
-{
-    for (int i = 0; array[i] != NULL; i++) {
-        my_freef("%t", array[i]);
-    }
-    free(array);
-}
-
 int exec_var(char **commands, shell_t *save, char **alias)
 {
     char **new_commands = my_malloc_var_array(commands, alias);
