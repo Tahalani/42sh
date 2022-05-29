@@ -7,6 +7,7 @@
 
 #include <unistd.h>
 #include <stdlib.h>
+#include <string.h>
 #include <stdio.h>
 
 #include "my.h"
@@ -32,4 +33,20 @@ void my_prompt(char **env)
         my_get_line_env(env, "HOSTNAME="), RED,
         prompt[my_len_array(prompt) - 1], YELLOW, CYAN, YELLOW, WHITE);
     my_freef("%s%t", tmp, prompt);
+}
+
+int manage_other_separator_two(char *commands, shell_t *save, int check)
+{
+    if ((my_char_is_in_str(commands, '>') == 1 ||
+    my_char_is_in_str(commands, '<') == 1) && check == 0) {
+        manage_redirection(commands, save);
+        check = 1;
+    } if (strstr(commands, "if") != NULL && check == 0) {
+        manage_if(commands, save);
+        check = 1;
+    } if (my_char_is_in_str(commands, '|') == 1 && check == 0) {
+        manage_pipe(commands, save);
+        check = 1;
+    }
+    return (check);
 }
