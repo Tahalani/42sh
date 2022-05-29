@@ -35,12 +35,35 @@ void manage_commands(char **commands, shell_t *save)
     }
 }
 
+void manage_logic(char *commands, shell_t *save)
+{
+    char **command = NULL;
+    if (strstr(commands, "||") != NULL) {
+        save->return_value = 1;
+        command = my_stwa_separator(commands, "|\n");
+        for (int i = 0; command[i] != NULL && save->return_value != 0; i++)
+            manage_commands(my_str_to_word_array(command[i]), save);
+        return;  
+    }
+    if (strstr(commands, "&&") != NULL) {
+        save->return_value = 0;
+        command = my_stwa_separator(commands, "&\n");
+        for (int i = 0; command[i] != NULL && save->return_value == 0; i++)
+            manage_commands(my_str_to_word_array(command[i]), save);
+        return;  
+    }
+}
+
 void manage_other_separator(char *commands, shell_t *save)
 {
     char **command = NULL;
 
     if (commands == NULL)
         return;
+    if (strstr(commands, "||") != NULL || strstr(commands, "&&") != NULL) {
+        manage_logic(commands, save);
+        return;
+    }
     if (my_char_is_in_str(commands, '>') == 1 ||
     my_char_is_in_str(commands, '<') == 1)
         manage_redirection(commands, save);
