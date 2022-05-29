@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** my_file_in_str
 ** File description:
-** FreeKOSOVO
+** my_file_in str
 */
 
 #include <stddef.h>

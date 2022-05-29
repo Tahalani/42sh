@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** my_freef
 ** File description:
-** FreeKOSOVO
+** my freef
 */
 
 #include <stdlib.h>

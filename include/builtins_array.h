@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2022
-** builtins_array
+** 42sh
 ** File description:
-** FreeKOSOVO
+** builtins_array
 */
 
 #ifndef BUILTINS_ARRAY_H_

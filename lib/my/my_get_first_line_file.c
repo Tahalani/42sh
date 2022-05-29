@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** my_get_first_line_file
 ** File description:
-** FreeKOSOVO
+** my_get_first_line file
 */
 
 #include <stdlib.h>

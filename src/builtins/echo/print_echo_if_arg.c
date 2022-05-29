@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** print_echo_if_arg
 ** File description:
-** FreeKOSOVO
+** print echo file
 */
 
 #include <stddef.h>

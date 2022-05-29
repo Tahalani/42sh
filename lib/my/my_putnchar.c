@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** my_putnchar
 ** File description:
-** FreeKOSOVO
+** my_putnchar
 */
 
 void my_putchar(char const c);

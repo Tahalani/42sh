@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2021
 ** my_puterr
 ** File description:
-** #FreeKOSOVO
+** #my_puterr
 */
 
 #include <unistd.h>

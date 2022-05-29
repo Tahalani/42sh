@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** my_get_line_env
 ** File description:
-** FreeKOSOVO
+** get line file
 */
 
 #include "my.h"

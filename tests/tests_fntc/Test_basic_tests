@@ -1,0 +1,57 @@
+#!/bin/bash
+
+echo "ls" | ./42sh > ../my_output.txt;
+ls > ../tcsh_output.txt 
+
+diff ../my_output.txt ../tcsh_output.txt
+if [ $? -eq 0 ]
+then
+    echo -e "\033[032mTest_basic_tests_1 : OK\033[0m"
+else
+    echo -e "\033[031mTest_basic_tests_1 : KO\033[0m"
+fi
+
+rm ../my_output.txt
+rm ../tcsh_output.txt
+
+echo "cat -e Makefile" | ./42sh > ../my_output.txt;
+cat -e Makefile > ../tcsh_output.txt 
+
+diff ../my_output.txt ../tcsh_output.txt
+if [ $? -eq 0 ]
+then
+    echo -e "\033[032mTest_basic_tests_2 : OK\033[0m"
+else
+    echo -e "\033[031mTest_basic_tests_2 : KO\033[0m"
+fi
+
+rm ../my_output.txt
+rm ../tcsh_output.txt
+
+echo "setenv toto ls; env | grep toto" | ./42sh > ../my_output.txt;
+echo "toto=ls" > ../tcsh_output.txt 
+
+diff ../my_output.txt ../tcsh_output.txt
+if [ $? -eq 0 ]
+then
+    echo -e "\033[032mTest_setenv_1 : OK\033[0m"
+else
+    echo -e "\033[031mTest_setenv_1 : KO\033[0m"
+fi
+
+rm ../my_output.txt
+rm ../tcsh_output.txt
+
+echo "setenv toto ls; unsetenv toto; env | grep toto" | ./42sh > ../my_output.txt;
+env | grep toto > ../tcsh_output.txt 
+
+diff ../my_output.txt ../tcsh_output.txt
+if [ $? -eq 0 ]
+then
+    echo -e "\033[032mTest_env_1 : OK\033[0m"
+else
+    echo -e "\033[031mTest_env_1 : KO\033[0m"
+fi
+
+rm ../my_output.txt
+rm ../tcsh_output.txt

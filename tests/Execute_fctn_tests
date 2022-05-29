@@ -3,5 +3,7 @@
 make -C ../
 cd ../
 
-
 ./tests/tests_fntc/Test_builtin_echo
+./tests/tests_fntc/Test_alias
+./tests/tests_fntc/Test_redirection
+./tests/tests_fntc/Test_basic_tests

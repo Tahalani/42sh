@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** my_copy_tab
 ** File description:
-** FreeKOSOVO
+** copy_tab
 */
 
 #include <stdlib.h>

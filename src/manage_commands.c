@@ -2,18 +2,22 @@
 ** EPITECH PROJECT, 2022
 ** manage_commands
 ** File description:
-** FreeKOSOVO
+** commands management
 */
 
 #include <stddef.h>
+#include <string.h>
+#include <stdlib.h>
+
 #include "commands_array.h"
 #include "redirection.h"
 #include "my.h"
 #include "mysh.h"
+#include "if.h"
 
 int analyse_commands(char **commands, shell_t *save)
 {
-    for (int i = 0; i != 4; i++) {
+    for (int i = 0; i != NBR_CMD; i++) {
         if ((*COMMANDS_ARRAY[i])(commands, save) == 0)
             return (0);
     }
@@ -38,8 +42,10 @@ void manage_other_separator(char *commands, shell_t *save)
     if (commands == NULL)
         return;
     if (my_char_is_in_str(commands, '>') == 1 ||
-    my_char_is_in_str(commands, '<') == 1) {
+    my_char_is_in_str(commands, '<') == 1)
         manage_redirection(commands, save);
+    else if (strstr(commands, "if") != NULL) {
+        manage_if(commands, save);
     } else if (my_char_is_in_str(commands, '|') == 1) {
         manage_pipe(commands, save);
     } else {
@@ -57,7 +63,16 @@ void manage_separator(shell_t *save)
         my_strcat(my_get_line_env(save->env, "HOME="), "/.42sh_history");
     my_write_in_file(filepath_history, save->str);
     my_freef("%s", filepath_history);
-    save->all_commands = my_stwa_separator(save->str, ";");
+    if (strstr(save->str, "if") == NULL) {
+        save->all_commands = my_stwa_separator(save->str, ";");
+        if (strncmp(save->all_commands[0], "ls", 2) == 0) {
+            save->all_commands[0] = realloc(save->all_commands[0], sizeof(char)
+            * (strlen(save->all_commands[0]) + strlen(" --color=auto") + 1));
+            save->all_commands[0] =
+            strcat(save->all_commands[0], " --color=auto");
+        }
+    } else
+        save->all_commands = my_stwa_separator(save->str, "\n");
     if (save->all_commands == NULL)
         return;
     for (int i = 0; save->all_commands[i] != NULL; i++)

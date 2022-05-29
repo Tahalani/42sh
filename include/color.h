@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2022
-** color
+** 42sh
 ** File description:
-** FreeKOSOVO
+** color
 */
 
 #ifndef COLOR_H_
@@ -14,7 +14,7 @@
     #define PURPLE "\033[10;95m"
     #define CYAN "\033[0;36m"
     #define WHITE "\033[0;37m"
-    
+
     #define RED_TXT(text) "\033[0;31m" text "\033[0;37m"
     #define GREEN_TXT(text) "\033[0;32m" text "\033[0;37m"
     #define YELLOW_TXT(text) "\033[0;33m" text "\033[0;37m"

@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2022
-** my_strstr
+** 42sh
 ** File description:
-** FreeKOSOVO
+** my_strstr
 */
 
 #include <stdlib.h>

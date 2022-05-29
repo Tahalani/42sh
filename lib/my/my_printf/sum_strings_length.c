@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2021
-** sum_strings_length
+** EPITECH PROJECT, 2022
+** 42sh
 ** File description:
-** FreeKOSOVO
+** sum_strings_length
 */
 
 #include <stdarg.h>

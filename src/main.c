@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** main
 ** File description:
-** FreeKOSOVO
+** main
 */
 
 #include <stdlib.h>

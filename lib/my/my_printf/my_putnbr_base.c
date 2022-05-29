@@ -1,6 +1,6 @@
 /*
-** EPITECH PROJECT, 2021
-** B-PSU-100-PAR-1-1-myprintf-lindon.aliu
+** EPITECH PROJECT, 2022
+** 42sh
 ** File description:
 ** my_putnbr_base
 */

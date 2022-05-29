@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2021
-** my_strcapitalize
+** EPITECH PROJECT, 2022
+** 42sh
 ** File description:
-** #FreeKOSOVO
+** my_strcapitalize
 */
 
 #include <stdio.h>

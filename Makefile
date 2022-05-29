@@ -1,8 +1,8 @@
 ##
-## EPITECH PROJECT, 2021
-## Makefile
+## EPITECH PROJECT, 2022
+## 42sh
 ## File description:
-## FreeKOSOVO
+## Makefile
 ##
 
 SRC			=		$(addsuffix .c,							\
@@ -19,6 +19,10 @@ SRC			=		$(addsuffix .c,							\
 								error_execve				\
 								gettype						\
 							)					 			\
+							$(addprefix condition/,			\
+								if_flag						\
+								if							\
+							)								\
 							$(addprefix redirection/,		\
 								redirection					\
 								redirection_left			\
@@ -61,6 +65,16 @@ SRC			=		$(addsuffix .c,							\
 								mem_alloc_var				\
 								print_var_exists			\
 							)								\
+							$(addprefix alias/,				\
+								parsing_alias				\
+								cmp_alias_and_cmd			\
+								manage_alias				\
+								copy_file_in_directory		\
+								find_alias_shrc				\
+								manage_tmp_alias			\
+								delete_and_add_alias		\
+								search_tmp_shrc				\
+							)					 			\
 							error							\
 							mysh							\
 							my_prompt						\
@@ -127,6 +141,16 @@ SRC_TEST	=		$(addsuffix .c,							\
 								mem_alloc_var				\
 								print_var_exists			\
 							)								\
+							$(addprefix alias/,				\
+								parsing_alias				\
+								cmp_alias_and_cmd			\
+								manage_alias				\
+								copy_file_in_directory		\
+								find_alias_shrc				\
+								manage_tmp_alias			\
+								delete_and_add_alias		\
+								search_tmp_shrc				\
+							)					 			\
 							error							\
 							mysh							\
 							my_prompt						\
@@ -160,7 +184,7 @@ COVFILES	=		*.gcno *.gcda
 
 all:	$(NAME)
 
-debug:	CFLAGS += -g3
+debug:	CFLAGS += -g
 debug:	fclean $(OBJ)
 	make debug -C lib/my
 	$(CC) -o $(NAME) $(OBJ) $(LDFLAGS)

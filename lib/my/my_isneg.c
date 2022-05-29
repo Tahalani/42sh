@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2021
 ** my_isneg
 ** File description:
-** #FreeKOSOVO
+** #my_is neg
 */
 
 void my_putchar(char const c);

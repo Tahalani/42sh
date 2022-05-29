@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** pipe
 ** File description:
-** FreeKOSOVO
+** pipe file
 */
 
 #include <string.h>

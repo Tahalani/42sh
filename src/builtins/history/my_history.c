@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** my_history
 ** File description:
-** FreeKOSOVO
+** history file
 */
 
 #include <stdlib.h>

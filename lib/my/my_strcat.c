@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2021
-** my_strcat
+** EPITECH PROJECT, 2022
+** 42sh
 ** File description:
-** #FreeKOSOVOO
+** my_strcat
 */
 
 #include <stdlib.h>

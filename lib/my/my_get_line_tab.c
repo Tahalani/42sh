@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** get_line_tab
 ** File description:
-** FreeKOSOVO
+** my_get_line_tab
 */
 
 #include <stddef.h>

@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** check_crash
 ** File description:
-** FreeKOSOVO
+** crasg check
 */
 
 #include <signal.h>

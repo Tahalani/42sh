@@ -1,0 +1,43 @@
+#!/bin/bash
+
+echo "ll" | ./42sh > ../my_output.txt;
+ls -l > ../tcsh_output.txt 
+
+diff ../my_output.txt ../tcsh_output.txt
+if [ $? -eq 0 ]
+then
+    echo -e "\033[032mTest_alias_1 : OK\033[0m"
+else
+    echo -e "\033[031mTest_alias_1 : KO\033[0m"
+fi
+
+rm ../my_output.txt
+rm ../tcsh_output.txt
+
+echo "alias toto ls -l; toto" | ./42sh > ../my_output.txt;
+ls -l > ../tcsh_output.txt 
+
+diff ../my_output.txt ../tcsh_output.txt
+if [ $? -eq 0 ]
+then
+    echo -e "\033[032mTest_alias_2 : OK\033[0m"
+else
+    echo -e "\033[031mTest_alias_2 : KO\033[0m"
+fi
+
+rm ../my_output.txt
+rm ../tcsh_output.txt
+
+echo "alias toto cat Makefile; toto" | ./42sh > ../my_output.txt;
+cat Makefile > ../tcsh_output.txt 
+
+diff ../my_output.txt ../tcsh_output.txt
+if [ $? -eq 0 ]
+then
+    echo -e "\033[032mTest_alias_3 : OK\033[0m"
+else
+    echo -e "\033[031mTest_alias_3 : KO\033[0m"
+fi
+
+rm ../my_output.txt
+rm ../tcsh_output.txt

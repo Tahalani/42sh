@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2021
-** my_sort_int_array
+** EPITECH PROJECT, 2022
+** 42sh
 ** File description:
-** #FreeKOSOVO
+** my_sort_int_array
 */
 
 void my_sort_int_array(int *tab, int const size)

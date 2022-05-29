@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2022
-** FreeKOSOVO
+** 42sh
 ** File description:
 ** builtins
 */

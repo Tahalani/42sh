@@ -38,7 +38,7 @@ int create_variable(char **commands)
     return 0;
 }
 
-void write_arg_in_boucle(char **commands, int fd)
+void write_var_in_boucle(char **commands, int fd)
 {
     if (commands[2] == NULL || strcmp(commands[2], "=") != 0)
         return;
@@ -49,7 +49,7 @@ void write_arg_in_boucle(char **commands, int fd)
     }
 }
 
-int my_change_line_in_file(char **file, char **commands, int fd, int i)
+int my_change_var_line_in_file(char **file, char **commands, int fd, int i)
 {
     char *cmd = my_strcat("var ", commands[1]);
     int ret_val = 0;
@@ -60,7 +60,7 @@ int my_change_line_in_file(char **file, char **commands, int fd, int i)
         write(fd, "var ", strlen("var "));
         write(fd, commands[1], strlen(commands[1]));
         write(fd, "=", 1);
-        write_arg_in_boucle(commands, fd);
+        write_var_in_boucle(commands, fd);
         write(fd, "\n", 1);
         ret_val = 1;
     } else {
@@ -74,7 +74,7 @@ int my_change_line_in_file(char **file, char **commands, int fd, int i)
 void modif_variable_value(char **file, char **commands, int fd, int *ret_val)
 {
     for (int i = 0; file[i] != NULL; i++) {
-        if (my_change_line_in_file(file, commands, fd, i) == 1)
+        if (my_change_var_line_in_file(file, commands, fd, i) == 1)
             *ret_val = 1;
     }
 }

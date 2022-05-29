@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** my_char_is_in_str
 ** File description:
-** FreeKOSOVO
+** my_char_is_in
 */
 
 int my_char_is_in_str(char const *str, char const c)

@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2022
-** echo_array
+** 42sh
 ** File description:
-** FreeKOSOVO
+** echo_array
 */
 
 #ifndef ECHO_ARRAY_H_

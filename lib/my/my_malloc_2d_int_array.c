@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** my_malloc_2d_int_array
 ** File description:
-** FreeKOSOVO
+** my_malloc_int_array
 */
 
 #include <stddef.h>

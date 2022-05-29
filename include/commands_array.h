@@ -1,20 +1,23 @@
 /*
 ** EPITECH PROJECT, 2022
-** commands_array
+** 42sh
 ** File description:
-** FreeKOSOVO
+** commands_array
 */
 
-#ifndef commands_array_H_
-    #define commands_array_H_
+#ifndef COMMANDS_ARRAY_H_
+    #define COMMANDS_ARRAY_H_
+
+    #define NBR_CMD 5
 
     #include "mysh.h"
 
 static int (*COMMANDS_ARRAY[]) (char **, shell_t *) = {
     manage_variables,
+    manage_alias,
     manage_builtins,
     check_access,
     check_path
 };
 
-#endif/* !commands_array_H_ */
+#endif/* !COMMANDS_ARRAY_H_ */

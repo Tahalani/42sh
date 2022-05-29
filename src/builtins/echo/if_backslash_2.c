@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** if_backslash_2
 ** File description:
-** FreeKOSOVO
+** echo backslash
 */
 
 #include "my.h"

@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2022
-** my_strtok
+** 42sh
 ** File description:
-** FreeKOSOVO
+** my_strtok
 */
 
 #include "my.h"

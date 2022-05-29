@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2021
 ** my
 ** File description:
-** #FreeKOSOVO
+** #my.h
 */
 
 #ifndef MY_H_
@@ -67,6 +67,7 @@ char *my_strncat(char *dest, char const *src, int const n);
 
 void my_free_array(char **);
 int my_freef(char *s, ...);
+void my_free_3d_array(char ***array);
 void my_free_int_array(int **, int nb_rows);
 
 /*-        END         -*/

@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** error
 ** File description:
-** FreeKOSOVO
+** error handling
 */
 
 #include "my.h"

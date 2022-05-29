@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2021
-** my_str_to_word_array
+** EPITECH PROJECT, 2022
+** 42sh
 ** File description:
-** #FreeKOSOVO
+** my_str_to_word_array
 */
 
 #include "my.h"

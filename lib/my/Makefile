@@ -1,8 +1,8 @@
 ##
-## EPITECH PROJECT, 2021
-## Makefile
+## EPITECH PROJECT, 2022
+## 42sh
 ## File description:
-## FreeKOSOVO
+## Makefile
 ##
 
 SRC			=	$(addsuffix .c,					\
@@ -63,6 +63,7 @@ SRC			=	$(addsuffix .c,					\
 					char_is_alpha_num			\
 					str_to_word_array			\
 					get_first_line_file			\
+					free_3d_array				\
 					compute_square_root			\
 					malloc_2d_char_array))
 

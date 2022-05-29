@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** my_char_is_alpha_num
 ** File description:
-** FreeKOSOVO
+** my_char_is_alpha
 */
 
 int my_char_isnum(char const c);

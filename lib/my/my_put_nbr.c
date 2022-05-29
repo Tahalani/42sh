@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2021
 ** my_put_nbr
 ** File description:
-** #FreeKOSOVO
+** #my_put_nbr
 */
 
 void my_putchar(const char c);

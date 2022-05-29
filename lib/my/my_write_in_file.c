@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2022
-** my_write_in_file
+** 42sh
 ** File description:
-** FreeKOSOVO
+** my_write_in_file
 */
 
 #include <sys/types.h>

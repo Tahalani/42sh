@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2022
-** my_unsetenv
+** 42sh
 ** File description:
-** FreeKOSOVO
+** my_unsetenv
 */
 
 #include <stdlib.h>

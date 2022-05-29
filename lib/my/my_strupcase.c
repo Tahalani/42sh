@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2021
-** my_strupcase
+** EPITECH PROJECT, 2022
+** 42sh
 ** File description:
-** #FreeKOSOVO
+** my_strupcase
 */
 
 #include "my.h"

@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** ctrl_c
 ** File description:
-** FreeKOSOVO
+** control c
 */
 
 #include <stdlib.h>

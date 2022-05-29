@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** pwd
 ** File description:
-** FreeKOSOVO
+** pwd file
 */
 
 #include <string.h>

@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2021
-** my_strcpy
+** EPITECH PROJECT, 2022
+** 42sh
 ** File description:
-** #FreeKOSOVO
+** my_strcpy
 */
 
 char *my_strcpy(char *dest, char const *src)

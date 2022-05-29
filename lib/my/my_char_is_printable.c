@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** my_char_is_printable
 ** File description:
-** FreeKOSOVO
+** my_char_is_print
 */
 
 int my_char_is_printable(char const c)

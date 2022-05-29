@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** my_setenv
 ** File description:
-** FreeKOSOVO
+** setenv file
 */
 
 #include <string.h>

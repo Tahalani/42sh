@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** verif_echo_arg
 ** File description:
-** FreeKOSOVO
+** verif echo file
 */
 
 #include <stddef.h>
