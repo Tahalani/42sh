@@ -43,14 +43,14 @@ void manage_logic(char *commands, shell_t *save)
         command = my_stwa_separator(commands, "|\n");
         for (int i = 0; command[i] != NULL && save->return_value != 0; i++)
             manage_commands(my_str_to_word_array(command[i]), save);
-        return;  
+        return;
     }
     if (strstr(commands, "&&") != NULL) {
         save->return_value = 0;
         command = my_stwa_separator(commands, "&\n");
         for (int i = 0; command[i] != NULL && save->return_value == 0; i++)
             manage_commands(my_str_to_word_array(command[i]), save);
-        return;  
+        return;
     }
 }
 
