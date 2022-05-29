@@ -49,7 +49,7 @@ static int dup_and_execute(int fildes[2], int sec_fd, char *commands,
     return pid;
 }
 
-static close_and_wait(int fildes[2], int pid[2])
+static void close_and_wait(int fildes[2], int pid[2])
 {
     close(fildes[0]);
     close(fildes[1]);
