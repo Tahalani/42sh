@@ -17,7 +17,7 @@
 
 int analyse_commands(char **commands, shell_t *save)
 {
-    for (int i = 0; i != 4; i++) {
+    for (int i = 0; i != NBR_CMD; i++) {
         if ((*COMMANDS_ARRAY[i])(commands, save) == 0)
             return (0);
     }

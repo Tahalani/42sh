@@ -9,6 +9,7 @@
 #include <signal.h>
 #include <stdio.h>
 
+#include "variables.h"
 #include "mysh.h"
 #include "alias.h"
 #include "my.h"
@@ -41,6 +42,7 @@ int myshell(shell_t *save)
             break;
         my_prompt(save->env);
     }
+    remove(VARIABLES_TMP_FILE);
     free(save->str);
     remove(ALIAS_TMP_FILE);
     return (0);

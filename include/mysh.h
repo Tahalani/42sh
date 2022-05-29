@@ -41,6 +41,7 @@ int check_access(char **commands, shell_t *);
 int check_path(char **commands, shell_t *);
 void error_execve(char *str, char **commands, char **env, int *value);
 void check_status(int status, int *value);
+int manage_variables(char **commands, shell_t *save);
 
 char *my_clean_str(char const *str);
 void manage_pipe(char *commands, shell_t *);

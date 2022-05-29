@@ -58,6 +58,13 @@ SRC			=		$(addsuffix .c,							\
 								exit						\
 								manage_builtins				\
 							)								\
+							$(addprefix variables/,			\
+								manage_variables			\
+								exec_variables				\
+								search_variables_exist		\
+								mem_alloc_var				\
+								print_var_exists			\
+							)								\
 							$(addprefix alias/,				\
 								parsing_alias				\
 								cmp_alias_and_cmd			\
@@ -126,6 +133,13 @@ SRC_TEST	=		$(addsuffix .c,							\
 								my_unsetenv					\
 								exit						\
 								manage_builtins				\
+							)								\
+							$(addprefix variables/,			\
+								manage_variables			\
+								exec_variables				\
+								search_variables_exist		\
+								mem_alloc_var				\
+								print_var_exists			\
 							)								\
 							$(addprefix alias/,				\
 								parsing_alias				\

@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2022
-** 42sh
-** File description:
+** EPITECH PROJECT, 2021
 ** my
+** File description:
+** #my.h
 */
 
 #ifndef MY_H_
