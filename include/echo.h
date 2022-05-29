@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2021
-** echo
+** EPITECH PROJECT, 2022
+** 42sh
 ** File description:
-** FreeKOSOVO
+** echo
 */
 
 #ifndef ECHO_H_

@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** my_prompt
 ** File description:
-** FreeKOSOVO
+** prompt file
 */
 
 #include <unistd.h>

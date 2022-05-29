@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** manage_alias
 ** File description:
-** FreeKOSOVO
+** alias management
 */
 
 #include <string.h>

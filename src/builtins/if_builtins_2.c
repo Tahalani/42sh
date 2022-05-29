@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2022
-** if_builtins_2
+** 42sh
 ** File description:
-** FreeKOSOVO
+** if_builtins_2
 */
 
 #include "my.h"

@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2021
-** sum_numbers
+** EPITECH PROJECT, 2022
+** 42sh
 ** File description:
-** FreeKOSOVO
+** sum_numbers
 */
 
 #include <stdarg.h>

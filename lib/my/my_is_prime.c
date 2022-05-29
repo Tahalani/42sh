@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2021
 ** my_is_prime
 ** File description:
-** #FreeKOSOVO
+** #my is_prime
 */
 
 int my_is_prime(int const nb)

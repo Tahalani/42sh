@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2022
-** tests_error
+** 42sh
 ** File description:
-** FreeKOSOVO
+** tests_error
 */
 
 #include <criterion/criterion.h>

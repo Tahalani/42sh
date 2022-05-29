@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2022
-** str_to_array
+** 42sh
 ** File description:
-** FreeKOSOVO
+** my_stwa_separator
 */
 
 #include <stdlib.h>

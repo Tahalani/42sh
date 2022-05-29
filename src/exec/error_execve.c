@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** error_execve
 ** File description:
-** FreeKOSOVO
+** error handling execve
 */
 
 #include <sys/types.h>

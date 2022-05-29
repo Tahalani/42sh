@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** echo_handle_backslash
 ** File description:
-** FreeKOSOVO
+** echo backslash
 */
 
 #include "echo_array.h"

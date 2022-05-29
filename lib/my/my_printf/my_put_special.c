@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2021
-** my_put_S
+** EPITECH PROJECT, 2022
+** 42sh
 ** File description:
-** FreeKOSOVO
+** my_put_special
 */
 
 #include <unistd.h>

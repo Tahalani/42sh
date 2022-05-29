@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2022
-** setenv
+** 42sh
 ** File description:
-** FreeKOSOVO
+** setenv
 */
 
 #ifndef SETENV_H_

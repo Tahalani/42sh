@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2021
 ** my_find_prime_sup
 ** File description:
-** #FreeKOSOVO
+** #my_find_prime
 */
 
 int my_is_prime(int nb);

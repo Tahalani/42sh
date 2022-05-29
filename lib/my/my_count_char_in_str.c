@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** my_count_char_in_str
 ** File description:
-** FreeKOSOVO
+** count_char_in_str
 */
 
 int my_count_char_in_str(char const *str, char c)

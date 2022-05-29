@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** my_getenv
 ** File description:
-** FreeKOSOVO
+** getenv
 */
 
 #include <string.h>

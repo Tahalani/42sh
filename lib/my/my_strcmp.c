@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2021
-** my_strcmp
+** EPITECH PROJECT, 2022
+** 42sh
 ** File description:
-** #FreeKOSOVO
+** my_strcmp
 */
 
 int my_strcmp(char *s1, char *s2)

@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2021
-** my_str_isnum
+** EPITECH PROJECT, 2022
+** 42sh
 ** File description:
-** #FreeKOSOVO
+** my_str_isnum
 */
 
 int my_str_isnum(char const *str)

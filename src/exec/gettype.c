@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** gettype
 ** File description:
-** FreeKOSOVO
+** get type
 */
 
 #include <sys/stat.h>

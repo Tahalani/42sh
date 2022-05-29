@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2021
-** mysh
+** EPITECH PROJECT, 2022
+** 42sh
 ** File description:
-** FreeKOSOVO
+** mysh
 */
 
 #ifndef MYSH_H_

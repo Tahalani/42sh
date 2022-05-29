@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** my_int_to_char
 ** File description:
-** FreeKOSOVO
+** int_to_char
 */
 
 #include <stdlib.h>

@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** manage_commands
 ** File description:
-** FreeKOSOVO
+** commands management
 */
 
 #include <stddef.h>

@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** my_free_int_array
 ** File description:
-** FreeKOSOVO
+** my_free_int array
 */
 
 #include <stdlib.h>

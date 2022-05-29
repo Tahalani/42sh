@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** my_len_array
 ** File description:
-** FreeKOSOVO
+** len_array
 */
 
 #include <stddef.h>

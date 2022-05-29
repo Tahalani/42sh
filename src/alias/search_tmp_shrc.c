@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** search_tmp_alias
 ** File description:
-** FreeKOSOVO
+** alias search file
 */
 
 #include <stdlib.h>

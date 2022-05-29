@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2022
-** history
+** 42sh
 ** File description:
-** FreeKOSOVO
+** history
 */
 
 #ifndef HISTORY_H_

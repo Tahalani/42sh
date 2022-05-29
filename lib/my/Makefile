@@ -1,8 +1,8 @@
 ##
-## EPITECH PROJECT, 2021
-## Makefile
+## EPITECH PROJECT, 2022
+## 42sh
 ## File description:
-## FreeKOSOVO
+## Makefile
 ##
 
 SRC			=	$(addsuffix .c,					\

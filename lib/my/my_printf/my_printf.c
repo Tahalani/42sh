@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2021
-** my_printf
+** EPITECH PROJECT, 2022
+** 42sh
 ** File description:
-** FreeKOSOVO
+** my_printf
 */
 
 #include "../my.h"

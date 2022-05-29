@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2021
 ** my_putchar
 ** File description:
-** #FreeKOSOVO
+** #my_putchar
 */
 
 #include <unistd.h>

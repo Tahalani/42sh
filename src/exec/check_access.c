@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** check_access
 ** File description:
-** FreeKOSOVO
+** access check
 */
 
 #include <unistd.h>

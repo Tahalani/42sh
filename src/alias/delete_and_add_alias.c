@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** manage_tmp_alias
 ** File description:
-** FreeKOSOVO
+** delete alias file
 */
 
 #include <stdio.h>

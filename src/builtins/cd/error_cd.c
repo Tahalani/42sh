@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** error_cd
 ** File description:
-** FreeKOSOVO
+** error handling cd
 */
 
 #include <sys/types.h>

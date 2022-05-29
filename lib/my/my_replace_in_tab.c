@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** my_replace_in_tab
 ** File description:
-** FreeKOSOVO
+** my_replace_in_tab
 */
 
 #include <stddef.h>

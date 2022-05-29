@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** check_path
 ** File description:
-** FreeKOSOVO
+** check path file
 */
 
 #include <string.h>

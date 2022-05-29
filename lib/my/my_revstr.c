@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2021
 ** my_revstr
 ** File description:
-** #FreeKOSOVO
+** #my_revstr
 */
 
 int my_strlen(char const *str);

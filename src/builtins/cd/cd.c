@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** cd
 ** File description:
-** FreeKOSOVO
+** cd file
 */
 
 #include <stdlib.h>

@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2022
-** my_strcat_in_array
+** 42sh
 ** File description:
-** FreeKOSOVO
+** my_strcat_in_array
 */
 
 #include <stddef.h>

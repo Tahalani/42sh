@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** error_setenv
 ** File description:
-** FreeKOSOVO
+** error setenv
 */
 
 #include <string.h>

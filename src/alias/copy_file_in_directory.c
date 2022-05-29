@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** copy_file_in_directory
 ** File description:
-** FreeKOSOVO
+** copy alias file
 */
 
 #include <sys/types.h>

@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2021
 ** my_char_isnum
 ** File description:
-** #FreeKOSOVO
+** #my_char_is num
 */
 
 int my_char_isnum(char const c)

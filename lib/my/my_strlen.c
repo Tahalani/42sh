@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2021
-** cpool day04 task03
+** EPITECH PROJECT, 2022
+** 42sh
 ** File description:
-** my_strlen.c
+** my_strlen
 */
 
 int my_strlen(char const *str)

@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** parsing_alias
 ** File description:
-** FreeKOSOVO
+** alias parse
 */
 
 #include <stdio.h>

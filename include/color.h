@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2022
-** color
+** 42sh
 ** File description:
-** FreeKOSOVO
+** color
 */
 
 #ifndef COLOR_H_

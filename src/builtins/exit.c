@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2022
-** exit
+** 42sh
 ** File description:
-** FreeKOSOVO
+** exit
 */
 
 #include <string.h>

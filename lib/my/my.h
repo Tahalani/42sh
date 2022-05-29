@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2021
 ** my
 ** File description:
-** #FreeKOSOVO
+** #my.h
 */
 
 #ifndef MY_H_

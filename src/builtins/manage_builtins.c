@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2022
-** manage_builtins
+** 42sh
 ** File description:
-** FreeKOSOVO
+** manage_builtins
 */
 
 #include "builtins.h"

@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** my_show_word_array
 ** File description:
-** FreeKOSOVO
+** my_show_word_array
 */
 
 #include <stddef.h>

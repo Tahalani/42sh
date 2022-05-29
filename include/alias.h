@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2022
-** alias_array
+** 42sh
 ** File description:
-** FreeKOSOVO
+** alias
 */
 
 #ifndef ALIAS_H_

@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** my_print_int_array
 ** File description:
-** FreeKOSOVO
+** print_int_array
 */
 
 int my_printf(char *s, ...);

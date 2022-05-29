@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** redirection
 ** File description:
-** FreeKOSOVO
+** redirection main file
 */
 
 #include <sys/types.h>

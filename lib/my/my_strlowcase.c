@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2021
-** my_strlowcase
+** EPITECH PROJECT, 2022
+** 42sh
 ** File description:
-** #FreeKOSOVO
+** my_strlowcase
 */
 
 char *my_strlowcase(char *str)

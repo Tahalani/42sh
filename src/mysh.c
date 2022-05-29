@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** mysh
 ** File description:
-** FreeKOSOVO
+** my_42sh file
 */
 
 #include <stdlib.h>

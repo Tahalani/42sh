@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** find_alias_shrc
 ** File description:
-** FreeKOSOVO
+** alias shrc
 */
 
 #include <stdio.h>

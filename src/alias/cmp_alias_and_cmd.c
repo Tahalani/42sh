@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** cmp_alias_and_cmd
 ** File description:
-** FreeKOSOVO
+** alias cmp
 */
 
 #include <stdlib.h>

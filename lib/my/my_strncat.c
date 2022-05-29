@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2021
-** my_strncat
+** EPITECH PROJECT, 2022
+** 42sh
 ** File description:
-** #FreeKOSOVOO
+** my_strncat
 */
 
 int my_strlen(char const *str);
