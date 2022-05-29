@@ -38,6 +38,7 @@ void manage_commands(char **commands, shell_t *save)
 void manage_logic(char *commands, shell_t *save)
 {
     char **command = NULL;
+
     if (strstr(commands, "||") != NULL) {
         save->return_value = 1;
         command = my_stwa_separator(commands, "|\n");

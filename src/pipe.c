@@ -49,6 +49,14 @@ static int dup_and_execute(int fildes[2], int sec_fd, char *commands,
     return pid;
 }
 
+static close_and_wait(int fildes[2], int pid[2])
+{
+    close(fildes[0]);
+    close(fildes[1]);
+    waitpid(pid[0], NULL, 0);
+    waitpid(pid[1], NULL, 0);
+}
+
 void manage_pipe(char *commands, shell_t *save)
 {
     char **array = my_stwa_separator(commands, "|");
@@ -69,8 +77,5 @@ void manage_pipe(char *commands, shell_t *save)
             manage_pipe(commands + strlen(array[0]), save);
         execute(array[1], save);
     }
-    close(fildes[0]);
-    close(fildes[1]);
-    waitpid(pid[0], NULL, 0);
-    waitpid(pid[1], NULL, 0);
+    close_and_wait(fildes, pid);
 }
