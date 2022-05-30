@@ -19,6 +19,8 @@ void my_prompt(char **env)
     char filepath[4096];
     char *tmp = NULL;
     char **prompt = NULL;
+    char *user = my_get_line_env(env, "USER=");
+    char *hostname = my_get_line_env(env, "HOSTNAME=");
 
     if (!isatty(INPUT))
         return;
@@ -29,8 +31,8 @@ void my_prompt(char **env)
     tmp = my_strcpy(tmp, filepath);
     prompt = my_stwa_separator(tmp, "/");
     my_printf("%s[%s%s%s@%s%s %s%s%s]%s$%s>%s ", YELLOW, GREEN,
-        my_get_line_env(env, "USER="), YELLOW, PURPLE,
-        my_get_line_env(env, "HOSTNAME="), RED,
+        user == NULL ? "user" : user, YELLOW, PURPLE,
+        hostname == NULL ? "hostname" : hostname, RED,
         prompt[my_len_array(prompt) - 1], YELLOW, CYAN, YELLOW, WHITE);
     my_freef("%s%t", tmp, prompt);
 }
